@@ -42,6 +42,13 @@ jobs:
         source: "documentation/latex/refman.pdf"
         target: "documentation/html/refman.pdf"
 
+    - name: Copy log
+      uses: canastro/copy-action@0.0.2
+      with:
+        source: "documentation/latex/refman.log"
+        target: "documentation/html/refman.log"
+
+
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
