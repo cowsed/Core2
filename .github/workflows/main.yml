@@ -32,8 +32,8 @@ jobs:
     - name: Copy file
       uses: canastro/copy-action@0.0.2
       with:
-        source: "latex/refman.tex"
-        target: "html/refman.tex"
+        source: "documentation/latex/refman.tex"
+        target: "documentation/html/refman.tex"
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
