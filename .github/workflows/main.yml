@@ -34,7 +34,7 @@ jobs:
       run: sudo apt-get install -y texlive-latex-base texlive-fonts-extra texlive-latex-extra texlive-font-utils
 
     - name: Install pdfunite dependencies
-      run: poppler-utils
+      run: sudo apt-get install -y poppler-utils
 
     - name: Generate Reference Manual
       run: sudo make --directory=documentation/latex
