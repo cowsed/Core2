@@ -29,6 +29,11 @@ jobs:
         doxyfile-path: "./Doxyfile" # default is ./Doxyfile
         # Working directory
         working-directory: "." # default is .
+    - name: Copy file
+      uses: canastro/copy-action@0.0.2
+      with:
+        source: "latex/refman.tex"
+        target: "html/refman.tex"
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
@@ -36,4 +41,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         # Default Doxyfile build documentation to html directory. 
         # Change the directory if changes in Doxyfile
-        publish_dir: ./documentation
+        publish_dir: ./documentation/html
