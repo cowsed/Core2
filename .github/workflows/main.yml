@@ -30,7 +30,7 @@ jobs:
         # Working directory
         working-directory: "." # default is .
 
-    - run: make -f documentation/latex/Makefile --directory=documentation/latex
+    - run: make --directory=documentation/latex
 
     
     - name: Copy file
