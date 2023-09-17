@@ -33,7 +33,7 @@ jobs:
     - name: Install pdflatex dependencies
       run: sudo apt-get install -y texlive-latex-base texlive-fonts-extra texlive-latex-extra
 
-    - run: make --directory=documentation/latex
+    - run: sudo make --directory=documentation/latex
 
     
     - name: Copy file
