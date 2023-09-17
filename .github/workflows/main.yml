@@ -30,6 +30,9 @@ jobs:
         # Working directory
         working-directory: "." # default is .
 
+    - name: Install pdflatex dependencies
+      run: sudo apt-get install -y texlive-latex-base texlive-fonts-extra texlive-latex-extra
+
     - run: make --directory=documentation/latex
 
     
