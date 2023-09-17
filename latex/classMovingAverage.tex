@@ -1,0 +1,99 @@
+\doxysection{Moving\+Average Class Reference}
+\hypertarget{classMovingAverage}{}\label{classMovingAverage}\index{MovingAverage@{MovingAverage}}
+
+
+{\ttfamily \#include $<$moving\+\_\+average.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMovingAverage_a2455b651d3c6ad1f14d1a0d65b2394b2}{Moving\+Average}} (int buffer\+\_\+size)
+\item 
+\mbox{\hyperlink{classMovingAverage_afd1c880fdd617fcbf02f54ac87f45d6f}{Moving\+Average}} (int buffer\+\_\+size, double starting\+\_\+value)
+\item 
+void \mbox{\hyperlink{classMovingAverage_a6c85ea575428ef7faf1f1f111a985db8}{add\+\_\+entry}} (double n)
+\item 
+double \mbox{\hyperlink{classMovingAverage_aa91e650064d361abe51bfa0b166ac6c0}{get\+\_\+average}} ()
+\item 
+int \mbox{\hyperlink{classMovingAverage_ac45976e15321d2c2f52d1f281475b53d}{get\+\_\+size}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classMovingAverage}{Moving\+Average}
+
+A moving average is a way of smoothing out noisy data. For many sensor readings, the noise is roughly symmetric around the actual value. This means that if you collect enough samples those that are too high are cancelled out by the samples that are too low leaving the real value.
+
+The \doxylink{classMovingAverage}{Moving\+Average} class provides a simple interface to do this smoothing from our noisy sensor values.
+
+WARNING\+: because we need a lot of samples to get the actual value, the value given by the \doxylink{classMovingAverage}{Moving\+Average} will \textquotesingle{}lag\textquotesingle{} behind the actual value that the sensor is reading. Using a \doxylink{classMovingAverage}{Moving\+Average} is thus a tradeoff between accuracy and lag time (more samples) vs. less accuracy and faster updating (less samples). ~\newline
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMovingAverage_a2455b651d3c6ad1f14d1a0d65b2394b2}\label{classMovingAverage_a2455b651d3c6ad1f14d1a0d65b2394b2} 
+\index{MovingAverage@{MovingAverage}!MovingAverage@{MovingAverage}}
+\index{MovingAverage@{MovingAverage}!MovingAverage@{MovingAverage}}
+\doxysubsubsection{\texorpdfstring{MovingAverage()}{MovingAverage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Moving\+Average\+::\+Moving\+Average (\begin{DoxyParamCaption}\item[{int}]{buffer\+\_\+size }\end{DoxyParamCaption})}
+
+Create a moving average calculator with 0 as the default value
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer\+\_\+size} & The size of the buffer. The number of samples that constitute a valid reading \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMovingAverage_afd1c880fdd617fcbf02f54ac87f45d6f}\label{classMovingAverage_afd1c880fdd617fcbf02f54ac87f45d6f} 
+\index{MovingAverage@{MovingAverage}!MovingAverage@{MovingAverage}}
+\index{MovingAverage@{MovingAverage}!MovingAverage@{MovingAverage}}
+\doxysubsubsection{\texorpdfstring{MovingAverage()}{MovingAverage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Moving\+Average\+::\+Moving\+Average (\begin{DoxyParamCaption}\item[{int}]{buffer\+\_\+size,  }\item[{double}]{starting\+\_\+value }\end{DoxyParamCaption})}
+
+Create a moving average calculator with a specified default value 
+\begin{DoxyParams}{Parameters}
+{\em buffer\+\_\+size} & The size of the buffer. The number of samples that constitute a valid reading \\
+\hline
+{\em starting\+\_\+value} & The value that the average will be before any data is added \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMovingAverage_a6c85ea575428ef7faf1f1f111a985db8}\label{classMovingAverage_a6c85ea575428ef7faf1f1f111a985db8} 
+\index{MovingAverage@{MovingAverage}!add\_entry@{add\_entry}}
+\index{add\_entry@{add\_entry}!MovingAverage@{MovingAverage}}
+\doxysubsubsection{\texorpdfstring{add\_entry()}{add\_entry()}}
+{\footnotesize\ttfamily void Moving\+Average\+::add\+\_\+entry (\begin{DoxyParamCaption}\item[{double}]{n }\end{DoxyParamCaption})}
+
+Add a reading to the buffer Before\+: \mbox{[} 1 1 2 2 3 3\mbox{]} =\texorpdfstring{$>$}{>} 2 \texorpdfstring{$^\wedge$}{\string^} After\+: \mbox{[} 2 1 2 2 3 3\mbox{]} =\texorpdfstring{$>$}{>} 2.\+16 \texorpdfstring{$^\wedge$}{\string^} 
+\begin{DoxyParams}{Parameters}
+{\em n} & the sample that will be added to the moving average. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMovingAverage_aa91e650064d361abe51bfa0b166ac6c0}\label{classMovingAverage_aa91e650064d361abe51bfa0b166ac6c0} 
+\index{MovingAverage@{MovingAverage}!get\_average@{get\_average}}
+\index{get\_average@{get\_average}!MovingAverage@{MovingAverage}}
+\doxysubsubsection{\texorpdfstring{get\_average()}{get\_average()}}
+{\footnotesize\ttfamily double Moving\+Average\+::get\+\_\+average (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the average based off of all the samples collected so far \begin{DoxyReturn}{Returns}
+the calculated average. sum(samples)/numsamples
+\end{DoxyReturn}
+How many samples the average is made from \begin{DoxyReturn}{Returns}
+the number of samples used to calculate this average 
+\end{DoxyReturn}
+\Hypertarget{classMovingAverage_ac45976e15321d2c2f52d1f281475b53d}\label{classMovingAverage_ac45976e15321d2c2f52d1f281475b53d} 
+\index{MovingAverage@{MovingAverage}!get\_size@{get\_size}}
+\index{get\_size@{get\_size}!MovingAverage@{MovingAverage}}
+\doxysubsubsection{\texorpdfstring{get\_size()}{get\_size()}}
+{\footnotesize\ttfamily int Moving\+Average\+::get\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+How many samples the average is made from \begin{DoxyReturn}{Returns}
+the number of samples used to calculate this average 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/moving\+\_\+average.\+h\item 
+src/utils/moving\+\_\+average.\+cpp\end{DoxyCompactItemize}

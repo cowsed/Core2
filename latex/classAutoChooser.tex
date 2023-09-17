@@ -1,0 +1,112 @@
+\doxysection{Auto\+Chooser Class Reference}
+\hypertarget{classAutoChooser}{}\label{classAutoChooser}\index{AutoChooser@{AutoChooser}}
+
+
+{\ttfamily \#include $<$auto\+\_\+chooser.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAutoChooser_1_1entry__t}{entry\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAutoChooser_a6e4f8f87e9cf0d0df2e36cda803f2c51}{Auto\+Chooser}} (vex\+::brain \&\mbox{\hyperlink{classAutoChooser_a9889be17b1b6243563f975dd421802b4}{brain}})
+\item 
+void \mbox{\hyperlink{classAutoChooser_a67b80bf6b62cfced155519f5b608e08c}{add}} (std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{classAutoChooser_ada27d20c06baeb169c3abed5fd0b06bb}{get\+\_\+choice}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAutoChooser_a9365d354e3401d819e58a999721c07d9}{render}} (\mbox{\hyperlink{structAutoChooser_1_1entry__t}{entry\+\_\+t}} \texorpdfstring{$\ast$}{*}selected)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classAutoChooser_a473e03a3e74487a38e94d3b5957f34bc}{choice}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structAutoChooser_1_1entry__t}{entry\+\_\+t}} $>$ \mbox{\hyperlink{classAutoChooser_a5c2b8683579011b529b95aab423b120a}{list}}
+\item 
+vex\+::brain \& \mbox{\hyperlink{classAutoChooser_a9889be17b1b6243563f975dd421802b4}{brain}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Autochooser is a utility to make selecting robot autonomous programs easier source\+: RIT VexU Wiki During a season, we usually code between 4 and 6 autonomous programs. Most teams will change their entire robot program as a way of choosing autonomi but this may cause issues if you have an emergency patch to upload during a competition. This class was built as a way of using the robot screen to list autonomous programs, and the touchscreen to select them. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAutoChooser_a6e4f8f87e9cf0d0df2e36cda803f2c51}\label{classAutoChooser_a6e4f8f87e9cf0d0df2e36cda803f2c51} 
+\index{AutoChooser@{AutoChooser}!AutoChooser@{AutoChooser}}
+\index{AutoChooser@{AutoChooser}!AutoChooser@{AutoChooser}}
+\doxysubsubsection{\texorpdfstring{AutoChooser()}{AutoChooser()}}
+{\footnotesize\ttfamily Auto\+Chooser\+::\+Auto\+Chooser (\begin{DoxyParamCaption}\item[{vex\+::brain \&}]{brain }\end{DoxyParamCaption})}
+
+Initialize the auto-\/chooser. This class places a choice menu on the brain screen, so the driver can choose which autonomous to run. 
+\begin{DoxyParams}{Parameters}
+{\em brain} & the brain on which to draw the selection boxes \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAutoChooser_a67b80bf6b62cfced155519f5b608e08c}\label{classAutoChooser_a67b80bf6b62cfced155519f5b608e08c} 
+\index{AutoChooser@{AutoChooser}!add@{add}}
+\index{add@{add}!AutoChooser@{AutoChooser}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void Auto\+Chooser\+::add (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+Add an auto path to the chooser 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the path. This should be used as an human readable identifier to the auto path\\
+\hline
+\end{DoxyParams}
+Add a new autonomous option. There are 3 options per row. \Hypertarget{classAutoChooser_ada27d20c06baeb169c3abed5fd0b06bb}\label{classAutoChooser_ada27d20c06baeb169c3abed5fd0b06bb} 
+\index{AutoChooser@{AutoChooser}!get\_choice@{get\_choice}}
+\index{get\_choice@{get\_choice}!AutoChooser@{AutoChooser}}
+\doxysubsubsection{\texorpdfstring{get\_choice()}{get\_choice()}}
+{\footnotesize\ttfamily std\+::string Auto\+Chooser\+::get\+\_\+choice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the currently selected auto choice \begin{DoxyReturn}{Returns}
+the identifier to the auto path
+\end{DoxyReturn}
+Return the selected autonomous \Hypertarget{classAutoChooser_a9365d354e3401d819e58a999721c07d9}\label{classAutoChooser_a9365d354e3401d819e58a999721c07d9} 
+\index{AutoChooser@{AutoChooser}!render@{render}}
+\index{render@{render}!AutoChooser@{AutoChooser}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Auto\+Chooser\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAutoChooser_1_1entry__t}{entry\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{selected }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Place all the autonomous choices on the screen. If one is selected, change it\textquotesingle{}s color 
+\begin{DoxyParams}{Parameters}
+{\em selected} & the choice that is currently selected \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classAutoChooser_a9889be17b1b6243563f975dd421802b4}\label{classAutoChooser_a9889be17b1b6243563f975dd421802b4} 
+\index{AutoChooser@{AutoChooser}!brain@{brain}}
+\index{brain@{brain}!AutoChooser@{AutoChooser}}
+\doxysubsubsection{\texorpdfstring{brain}{brain}}
+{\footnotesize\ttfamily vex\+::brain\& Auto\+Chooser\+::brain\hspace{0.3cm}{\ttfamily [protected]}}
+
+the brain to show the choices on \Hypertarget{classAutoChooser_a473e03a3e74487a38e94d3b5957f34bc}\label{classAutoChooser_a473e03a3e74487a38e94d3b5957f34bc} 
+\index{AutoChooser@{AutoChooser}!choice@{choice}}
+\index{choice@{choice}!AutoChooser@{AutoChooser}}
+\doxysubsubsection{\texorpdfstring{choice}{choice}}
+{\footnotesize\ttfamily std\+::string Auto\+Chooser\+::choice\hspace{0.3cm}{\ttfamily [protected]}}
+
+the current choice of auto \Hypertarget{classAutoChooser_a5c2b8683579011b529b95aab423b120a}\label{classAutoChooser_a5c2b8683579011b529b95aab423b120a} 
+\index{AutoChooser@{AutoChooser}!list@{list}}
+\index{list@{list}!AutoChooser@{AutoChooser}}
+\doxysubsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structAutoChooser_1_1entry__t}{entry\+\_\+t}}$>$ Auto\+Chooser\+::list\hspace{0.3cm}{\ttfamily [protected]}}
+
+\texorpdfstring{$<$}{<} a list of all possible auto choices 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/auto\+\_\+chooser.\+h\item 
+src/utils/auto\+\_\+chooser.\+cpp\end{DoxyCompactItemize}

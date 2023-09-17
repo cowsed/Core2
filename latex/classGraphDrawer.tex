@@ -1,0 +1,78 @@
+\doxysection{Graph\+Drawer Class Reference}
+\hypertarget{classGraphDrawer}{}\label{classGraphDrawer}\index{GraphDrawer@{GraphDrawer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGraphDrawer_a8066ff51adb3cbbeca34268d13f34c5f}{Graph\+Drawer}} (vex\+::brain\+::lcd \&screen, int num\+\_\+samples, std\+::string x\+\_\+label, std\+::string y\+\_\+label, vex\+::color col, bool draw\+\_\+border, double lower\+\_\+bound, double upper\+\_\+bound)
+\begin{DoxyCompactList}\small\item\em a helper class to graph values on the brain screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraphDrawer_a7d4960e25e5d586fa163fe49278ff952}{add\+\_\+sample}} (\mbox{\hyperlink{structpoint__t}{point\+\_\+t}} sample)
+\item 
+void \mbox{\hyperlink{classGraphDrawer_a420b88cacbf91908dc64624eb113d197}{draw}} (int x, int y, int width, int height)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGraphDrawer_a8066ff51adb3cbbeca34268d13f34c5f}\label{classGraphDrawer_a8066ff51adb3cbbeca34268d13f34c5f} 
+\index{GraphDrawer@{GraphDrawer}!GraphDrawer@{GraphDrawer}}
+\index{GraphDrawer@{GraphDrawer}!GraphDrawer@{GraphDrawer}}
+\doxysubsubsection{\texorpdfstring{GraphDrawer()}{GraphDrawer()}}
+{\footnotesize\ttfamily Graph\+Drawer\+::\+Graph\+Drawer (\begin{DoxyParamCaption}\item[{vex\+::brain\+::lcd \&}]{screen,  }\item[{int}]{num\+\_\+samples,  }\item[{std\+::string}]{x\+\_\+label,  }\item[{std\+::string}]{y\+\_\+label,  }\item[{vex\+::color}]{col,  }\item[{bool}]{draw\+\_\+border,  }\item[{double}]{lower\+\_\+bound,  }\item[{double}]{upper\+\_\+bound }\end{DoxyParamCaption})}
+
+
+
+a helper class to graph values on the brain screen 
+
+Construct a \doxylink{classGraphDrawer}{Graph\+Drawer} 
+\begin{DoxyParams}{Parameters}
+{\em screen} & a reference to Brain.\+screen we can save for later \\
+\hline
+{\em num\+\_\+samples} & the graph works on a fixed window and will plot the last {\ttfamily num\+\_\+samples} before the history is forgotten. Larger values give more context but may slow down if you have many graphs or an exceptionally high \\
+\hline
+{\em x\+\_\+label} & the name of the x axis (currently unused) \\
+\hline
+{\em y\+\_\+label} & the name of the y axis (currently unused) \\
+\hline
+{\em draw\+\_\+border} & whether to draw the border around the graph. can be turned off if there are multiple graphs in the same space ie. a graph of error and output \\
+\hline
+{\em lower\+\_\+bound} & the bottom of the window to graph. if lower\+\_\+bound == upperbound, the graph will scale to it\textquotesingle{}s datapoints \\
+\hline
+{\em upper\+\_\+bound} & the top of the window to graph. if lower\+\_\+bound == upperbound, the graph will scale to it\textquotesingle{}s datapoints \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGraphDrawer_a7d4960e25e5d586fa163fe49278ff952}\label{classGraphDrawer_a7d4960e25e5d586fa163fe49278ff952} 
+\index{GraphDrawer@{GraphDrawer}!add\_sample@{add\_sample}}
+\index{add\_sample@{add\_sample}!GraphDrawer@{GraphDrawer}}
+\doxysubsubsection{\texorpdfstring{add\_sample()}{add\_sample()}}
+{\footnotesize\ttfamily void Graph\+Drawer\+::add\+\_\+sample (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint__t}{point\+\_\+t}}}]{sample }\end{DoxyParamCaption})}
+
+add\+\_\+sample adds a point to the graph, removing one from the back 
+\begin{DoxyParams}{Parameters}
+{\em sample} & an x, y coordinate of the next point to graph \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGraphDrawer_a420b88cacbf91908dc64624eb113d197}\label{classGraphDrawer_a420b88cacbf91908dc64624eb113d197} 
+\index{GraphDrawer@{GraphDrawer}!draw@{draw}}
+\index{draw@{draw}!GraphDrawer@{GraphDrawer}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Graph\+Drawer\+::draw (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+draws the graph to the screen in the constructor 
+\begin{DoxyParams}{Parameters}
+{\em x} & x position of the top left of the graphed region \\
+\hline
+{\em y} & y position of the top left of the graphed region \\
+\hline
+{\em width} & the width of the graphed region \\
+\hline
+{\em height} & the height of the graphed region \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/graph\+\_\+drawer.\+h\item 
+src/utils/graph\+\_\+drawer.\+cpp\end{DoxyCompactItemize}

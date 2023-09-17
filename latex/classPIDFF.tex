@@ -1,0 +1,173 @@
+\doxysection{PIDFF Class Reference}
+\hypertarget{classPIDFF}{}\label{classPIDFF}\index{PIDFF@{PIDFF}}
+Inheritance diagram for PIDFF\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPIDFF}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPIDFF_a3ac78262b4dbe5f2dba3d415ae357c32}\label{classPIDFF_a3ac78262b4dbe5f2dba3d415ae357c32} 
+{\bfseries PIDFF} (\mbox{\hyperlink{structPID_1_1pid__config__t}{PID\+::pid\+\_\+config\+\_\+t}} \&pid\+\_\+cfg, \mbox{\hyperlink{structFeedForward_1_1ff__config__t}{Feed\+Forward\+::ff\+\_\+config\+\_\+t}} \&ff\+\_\+cfg)
+\item 
+void \mbox{\hyperlink{classPIDFF_a37226c8d3bfac97485b28105a15f29fc}{init}} (double start\+\_\+pt, double set\+\_\+pt) override
+\item 
+void \mbox{\hyperlink{classPIDFF_a5b5584e4ca036b0e51c693a24a23b50b}{set\+\_\+target}} (double set\+\_\+pt)
+\item 
+double \mbox{\hyperlink{classPIDFF_a9a9b05ec43e4430019652b62799e761c}{update}} (double val) override
+\item 
+double \mbox{\hyperlink{classPIDFF_a015bebe6d1028451e612f103ee2c1c2c}{update}} (double val, double vel\+\_\+setpt, double a\+\_\+setpt=0)
+\item 
+double \mbox{\hyperlink{classPIDFF_a78a34d271bcc703fc803e15b275fd238}{get}} () override
+\item 
+void \mbox{\hyperlink{classPIDFF_ae0dccb27a91ec687f90c930441f246bb}{set\+\_\+limits}} (double lower, double upper) override
+\item 
+bool \mbox{\hyperlink{classPIDFF_a2534a33490570d839bf1849673a70bc1}{is\+\_\+on\+\_\+target}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classFeedback}{Feedback}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual Feedback\+::\+Feedback\+Type {\bfseries get\+\_\+type} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPIDFF_a68affb443aa4a7992f7f03b9a50aed5a}\label{classPIDFF_a68affb443aa4a7992f7f03b9a50aed5a} 
+\mbox{\hyperlink{classPID}{PID}} {\bfseries pid}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classFeedback}{Feedback}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classFeedback_ac82a001abba300290790eb8414a84dce}\label{classFeedback_ac82a001abba300290790eb8414a84dce} 
+enum {\bfseries Feedback\+Type} \{ {\bfseries PIDType}
+, {\bfseries Feedforward\+Type}
+, {\bfseries Other\+Type}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPIDFF_a78a34d271bcc703fc803e15b275fd238}\label{classPIDFF_a78a34d271bcc703fc803e15b275fd238} 
+\index{PIDFF@{PIDFF}!get@{get}}
+\index{get@{get}!PIDFF@{PIDFF}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily double PIDFF\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the last saved result from the feedback controller 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFeedback_ac44bb519a6f4e25c8e8250f3d30ab359}{Feedback}}.
+
+\Hypertarget{classPIDFF_a37226c8d3bfac97485b28105a15f29fc}\label{classPIDFF_a37226c8d3bfac97485b28105a15f29fc} 
+\index{PIDFF@{PIDFF}!init@{init}}
+\index{init@{init}!PIDFF@{PIDFF}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void PIDFF\+::init (\begin{DoxyParamCaption}\item[{double}]{start\+\_\+pt,  }\item[{double}]{set\+\_\+pt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialize the feedback controller for a movement
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+pt} & the current sensor value \\
+\hline
+{\em set\+\_\+pt} & where the sensor value should be \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFeedback_a22efb13216bfd51aea07e0b6e45135c1}{Feedback}}.
+
+\Hypertarget{classPIDFF_a2534a33490570d839bf1849673a70bc1}\label{classPIDFF_a2534a33490570d839bf1849673a70bc1} 
+\index{PIDFF@{PIDFF}!is\_on\_target@{is\_on\_target}}
+\index{is\_on\_target@{is\_on\_target}!PIDFF@{PIDFF}}
+\doxysubsubsection{\texorpdfstring{is\_on\_target()}{is\_on\_target()}}
+{\footnotesize\ttfamily bool PIDFF\+::is\+\_\+on\+\_\+target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if the feedback controller has reached it\textquotesingle{}s setpoint 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFeedback_ae4cc835c374aab9761d22603d4329d34}{Feedback}}.
+
+\Hypertarget{classPIDFF_ae0dccb27a91ec687f90c930441f246bb}\label{classPIDFF_ae0dccb27a91ec687f90c930441f246bb} 
+\index{PIDFF@{PIDFF}!set\_limits@{set\_limits}}
+\index{set\_limits@{set\_limits}!PIDFF@{PIDFF}}
+\doxysubsubsection{\texorpdfstring{set\_limits()}{set\_limits()}}
+{\footnotesize\ttfamily void PIDFF\+::set\+\_\+limits (\begin{DoxyParamCaption}\item[{double}]{lower,  }\item[{double}]{upper }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Clamp the upper and lower limits of the output. If both are 0, no limits should be applied.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & Upper limit \\
+\hline
+{\em upper} & Lower limit \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFeedback_a533a10b65cfc998898bf054f8b141de2}{Feedback}}.
+
+\Hypertarget{classPIDFF_a5b5584e4ca036b0e51c693a24a23b50b}\label{classPIDFF_a5b5584e4ca036b0e51c693a24a23b50b} 
+\index{PIDFF@{PIDFF}!set\_target@{set\_target}}
+\index{set\_target@{set\_target}!PIDFF@{PIDFF}}
+\doxysubsubsection{\texorpdfstring{set\_target()}{set\_target()}}
+{\footnotesize\ttfamily void PIDFF\+::set\+\_\+target (\begin{DoxyParamCaption}\item[{double}]{set\+\_\+pt }\end{DoxyParamCaption})}
+
+Set the target of the \doxylink{classPID}{PID} loop 
+\begin{DoxyParams}{Parameters}
+{\em set\+\_\+pt} & Setpoint / target value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPIDFF_a9a9b05ec43e4430019652b62799e761c}\label{classPIDFF_a9a9b05ec43e4430019652b62799e761c} 
+\index{PIDFF@{PIDFF}!update@{update}}
+\index{update@{update}!PIDFF@{PIDFF}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double PIDFF\+::update (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Iterate the feedback loop once with an updated sensor value. Only kS for feedfoward will be applied.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value from the sensor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+feedback loop result 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFeedback_adda5fc7642539996be00632954dfc41f}{Feedback}}.
+
+\Hypertarget{classPIDFF_a015bebe6d1028451e612f103ee2c1c2c}\label{classPIDFF_a015bebe6d1028451e612f103ee2c1c2c} 
+\index{PIDFF@{PIDFF}!update@{update}}
+\index{update@{update}!PIDFF@{PIDFF}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double PIDFF\+::update (\begin{DoxyParamCaption}\item[{double}]{val,  }\item[{double}]{vel\+\_\+setpt,  }\item[{double}]{a\+\_\+setpt = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Iterate the feedback loop once with an updated sensor value
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value from the sensor \\
+\hline
+{\em vel\+\_\+setpt} & Velocity for feedforward \\
+\hline
+{\em a\+\_\+setpt} & Acceleration for feedfoward \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+feedback loop result 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/pidff.\+h\item 
+src/utils/pidff.\+cpp\end{DoxyCompactItemize}

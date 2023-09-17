@@ -1,0 +1,58 @@
+\doxysection{serializer.\+h}
+\hypertarget{serializer_8h_source}{}\label{serializer_8h_source}\index{include/utils/serializer.h@{include/utils/serializer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ serialization\_separator\ =\ \textcolor{charliteral}{'\$'};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{const}\ std::size\_t\ MAX\_FILE\_SIZE\ =\ 4096;\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSerializer}{Serializer}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ flush\_always;}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ filename;}
+\DoxyCodeLine{00019\ \ \ \ \ std::map<std::string,\ int>\ ints;}
+\DoxyCodeLine{00020\ \ \ \ \ std::map<std::string,\ bool>\ bools;}
+\DoxyCodeLine{00021\ \ \ \ \ std::map<std::string,\ double>\ doubles;}
+\DoxyCodeLine{00022\ \ \ \ \ std::map<std::string,\ std::string>\ strings;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ read\_from\_disk();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classSerializer_a42a7d2d8e622ad1ef5f869813b498aa9}{\string~Serializer}}()}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSerializer_a566005d870bf30b48ac956f4cfe7b0ef}{save\_to\_disk}}();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Saving\ \%s\(\backslash\)n"{}},\ filename.c\_str());}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classSerializer_a111cbc8ff43cb3bd23f68d5560a958ab}{Serializer}}(\textcolor{keyword}{const}\ std::string\ \&filename,\ \textcolor{keywordtype}{bool}\ flush\_always\ =\ \textcolor{keyword}{true})\ :\ flush\_always(flush\_always),\ filename(filename),\ ints(\{\}),\ bools(\{\}),\ doubles(\{\}),\ strings(\{\})\ \{\ read\_from\_disk();\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSerializer_a566005d870bf30b48ac956f4cfe7b0ef}{save\_to\_disk}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSerializer_a5f4c7909ef3152f6a26262c0306d9820}{set\_int}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSerializer_a09aa4bb5eb33a01069204490f48bcaec}{set\_bool}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keywordtype}{bool}\ b);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSerializer_a192488c6708f37e935e086ae33ca0a6e}{set\_double}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keywordtype}{double}\ d);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSerializer_a9c260073d1c7ffd41a8ff27f04b6b7b6}{set\_string}}(\textcolor{keyword}{const}\ std::string\ \&name,\ std::string\ str);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSerializer_a48801220eb88c567a496ad2ed5da2380}{int\_or}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keywordtype}{int}\ otherwise);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSerializer_a15d669148e800bbed3ae37fb33bb6a1d}{bool\_or}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keywordtype}{bool}\ otherwise);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classSerializer_a096df4d062c6402bee7b6853cdcc849b}{double\_or}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keywordtype}{double}\ otherwise);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ std::string\ \mbox{\hyperlink{classSerializer_a46f698b9e4f5d148e58068c52b349fe9}{string\_or}}(\textcolor{keyword}{const}\ std::string\ \&name,\ std::string\ otherwise);}
+\DoxyCodeLine{00092\ \};}
+
+\end{DoxyCode}

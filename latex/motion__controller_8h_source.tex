@@ -1,0 +1,57 @@
+\doxysection{motion\+\_\+controller.\+h}
+\hypertarget{motion__controller_8h_source}{}\label{motion__controller_8h_source}\index{include/utils/motion\_controller.h@{include/utils/motion\_controller.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/pid.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/feedforward.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/trapezoid\_profile.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/feedback\_base.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../core/include/subsystems/tank\_drive.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}vex.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMotionController}{MotionController}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classFeedback}{Feedback}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t_a949b084fe78795509ad8e65c74e9bc3f}{max\_v}};\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t_ac4f07f3ac52d12fd820ee4d8ce847f66}{accel}};\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structPID_1_1pid__config__t}{PID::pid\_config\_t}}\ \mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t_a2b6415c29fcab4f9b2ccff067a390baa}{pid\_cfg}};\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structFeedForward_1_1ff__config__t}{FeedForward::ff\_config\_t}}\ \mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t_ad8131facbd379321cc7083361e68ff62}{ff\_cfg}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ \}\ \mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t}{m\_profile\_cfg\_t}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classMotionController}{MotionController}}(\mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t}{m\_profile\_cfg\_t}}\ \&config);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMotionController_af0d665d9916111cbce677da6df6b6667}{init}}(\textcolor{keywordtype}{double}\ start\_pt,\ \textcolor{keywordtype}{double}\ end\_pt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classMotionController_a86ef0ef19858b5b407f7406bb5da30af}{update}}(\textcolor{keywordtype}{double}\ sensor\_val)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classMotionController_a2a1944f590618cd91770364aea416cd5}{get}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMotionController_a944c245002a1eb124dd8df40de4fcc57}{set\_limits}}(\textcolor{keywordtype}{double}\ lower,\ \textcolor{keywordtype}{double}\ upper)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMotionController_aa9e2af88b848646889deb1d43a283173}{is\_on\_target}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{structmotion__t}{motion\_t}}\ \mbox{\hyperlink{classMotionController_ab958ce97fbc4929f4dd03965671e8d4d}{get\_motion}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structFeedForward_1_1ff__config__t}{FeedForward::ff\_config\_t}}\ \mbox{\hyperlink{classMotionController_a20749b6a4bd3cf509a3acf682831eb00}{tune\_feedforward}}(\mbox{\hyperlink{classTankDrive}{TankDrive}}\ \&drive,\ \mbox{\hyperlink{classOdometryTank}{OdometryTank}}\ \&odometry,\ \textcolor{keywordtype}{double}\ pct=0.6,\ \textcolor{keywordtype}{double}\ duration=2);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{private}:\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t}{m\_profile\_cfg\_t}}\ config;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{classPID}{PID}}\ pid;}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classFeedForward}{FeedForward}}\ ff;}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{classTrapezoidProfile}{TrapezoidProfile}}\ profile;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{double}\ lower\_limit\ =\ 0,\ upper\_limit\ =\ 0;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{double}\ out\ =\ 0;}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{structmotion__t}{motion\_t}}\ cur\_motion;}
+\DoxyCodeLine{00123\ \ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ vex::timer\ tmr;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \};}
+
+\end{DoxyCode}

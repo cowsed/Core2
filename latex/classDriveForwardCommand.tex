@@ -1,0 +1,112 @@
+\doxysection{Drive\+Forward\+Command Class Reference}
+\hypertarget{classDriveForwardCommand}{}\label{classDriveForwardCommand}\index{DriveForwardCommand@{DriveForwardCommand}}
+
+
+{\ttfamily \#include $<$drive\+\_\+commands.\+h$>$}
+
+Inheritance diagram for Drive\+Forward\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDriveForwardCommand}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDriveForwardCommand_a09fb0fc75fa06951c9dc160de169d726}{Drive\+Forward\+Command}} (\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&drive\+\_\+sys, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double inches, direction\+Type dir, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classDriveForwardCommand_aff482b72cab23cd569eb01efac6d1d31}{run}} () override
+\item 
+void \mbox{\hyperlink{classDriveForwardCommand_a52b4e1ff386eeb1c00f219f40738d0af}{on\+\_\+timeout}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAutoCommand}{Auto\+Command}} \texorpdfstring{$\ast$}{*} {\bfseries with\+Timeout} (double t\+\_\+seconds)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classAutoCommand_ac3be7be26e49981ad1978491fd313472}{timeout\+\_\+seconds}} = default\+\_\+timeout
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double {\bfseries default\+\_\+timeout} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAutoCommand}{Auto\+Command} wrapper class for the drive\+\_\+forward function in the \doxylink{classTankDrive}{Tank\+Drive} class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDriveForwardCommand_a09fb0fc75fa06951c9dc160de169d726}\label{classDriveForwardCommand_a09fb0fc75fa06951c9dc160de169d726} 
+\index{DriveForwardCommand@{DriveForwardCommand}!DriveForwardCommand@{DriveForwardCommand}}
+\index{DriveForwardCommand@{DriveForwardCommand}!DriveForwardCommand@{DriveForwardCommand}}
+\doxysubsubsection{\texorpdfstring{DriveForwardCommand()}{DriveForwardCommand()}}
+{\footnotesize\ttfamily Drive\+Forward\+Command\+::\+Drive\+Forward\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&}]{drive\+\_\+sys,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{inches,  }\item[{direction\+Type}]{dir,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+File\+: \doxylink{drive__commands_8h_source}{drive\+\_\+commands.\+h} Desc\+: Holds all the \doxylink{classAutoCommand}{Auto\+Command} subclasses that wrap (currently) \doxylink{classTankDrive}{Tank\+Drive} functions
+
+Currently includes\+:
+\begin{DoxyItemize}
+\item drive\+\_\+forward
+\item turn\+\_\+degrees
+\item drive\+\_\+to\+\_\+point
+\item turn\+\_\+to\+\_\+heading
+\item stop
+\end{DoxyItemize}
+
+Also holds \doxylink{classAutoCommand}{Auto\+Command} subclasses that wrap \doxylink{classOdometryBase}{Odometry\+Base} functions
+
+Currently includes\+:
+\begin{DoxyItemize}
+\item set\+\_\+position Construct a Drive\+Forward Command 
+\begin{DoxyParams}{Parameters}
+{\em drive\+\_\+sys} & the drive system we are commanding \\
+\hline
+{\em feedback} & the feedback controller we are using to execute the drive \\
+\hline
+{\em inches} & how far forward to drive \\
+\hline
+{\em dir} & the direction to drive \\
+\hline
+{\em max\+\_\+speed} & 0 -\/\texorpdfstring{$>$}{>} 1 percentage of the drive systems speed to drive at \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDriveForwardCommand_a52b4e1ff386eeb1c00f219f40738d0af}\label{classDriveForwardCommand_a52b4e1ff386eeb1c00f219f40738d0af} 
+\index{DriveForwardCommand@{DriveForwardCommand}!on\_timeout@{on\_timeout}}
+\index{on\_timeout@{on\_timeout}!DriveForwardCommand@{DriveForwardCommand}}
+\doxysubsubsection{\texorpdfstring{on\_timeout()}{on\_timeout()}}
+{\footnotesize\ttfamily void Drive\+Forward\+Command\+::on\+\_\+timeout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Cleans up drive system if we time out before finishing
+
+reset the drive system if we timeout 
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a68475854d11e7c3be90e9c6e8fc9e982}{Auto\+Command}}.
+
+\Hypertarget{classDriveForwardCommand_aff482b72cab23cd569eb01efac6d1d31}\label{classDriveForwardCommand_aff482b72cab23cd569eb01efac6d1d31} 
+\index{DriveForwardCommand@{DriveForwardCommand}!run@{run}}
+\index{run@{run}!DriveForwardCommand@{DriveForwardCommand}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily bool Drive\+Forward\+Command\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Run drive\+\_\+forward Overrides run from \doxylink{classAutoCommand}{Auto\+Command} \begin{DoxyReturn}{Returns}
+true when execution is complete, false otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a9f58c576ca6378b18a4136f60df50560}{Auto\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/command\+\_\+structure/drive\+\_\+commands.\+h\item 
+src/utils/command\+\_\+structure/drive\+\_\+commands.\+cpp\end{DoxyCompactItemize}

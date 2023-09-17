@@ -1,0 +1,41 @@
+\doxysection{odometry\+\_\+tank.\+h}
+\hypertarget{odometry__tank_8h_source}{}\label{odometry__tank_8h_source}\index{include/subsystems/odometry/odometry\_tank.h@{include/subsystems/odometry/odometry\_tank.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../core/include/subsystems/odometry/odometry\_base.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../core/include/subsystems/custom\_encoder.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/geometry.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/vector2d.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../core/include/robot\_specs.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ background\_task(\textcolor{keywordtype}{void}*\ odom\_obj);}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classOdometryTank}{OdometryTank}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classOdometryBase}{OdometryBase}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classOdometryTank}{OdometryTank}}(vex::motor\_group\ \&left\_side,\ vex::motor\_group\ \&right\_side,\ \mbox{\hyperlink{structrobot__specs__t}{robot\_specs\_t}}\ \&config,\ vex::inertial\ *imu=NULL,\ \textcolor{keywordtype}{bool}\ is\_async=\textcolor{keyword}{true});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classOdometryTank}{OdometryTank}}(\mbox{\hyperlink{classCustomEncoder}{CustomEncoder}}\ \&left\_enc,\ \mbox{\hyperlink{classCustomEncoder}{CustomEncoder}}\ \&right\_enc,\ \mbox{\hyperlink{structrobot__specs__t}{robot\_specs\_t}}\ \&config,\ vex::inertial\ *imu=NULL,\ \textcolor{keywordtype}{bool}\ is\_async=\textcolor{keyword}{true});}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{structpose__t}{pose\_t}}\ \mbox{\hyperlink{classOdometryTank_a1a8f1251f7bce81e9153391df1ab42f7}{update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classOdometryTank_a6c24c0854b526a6f3aaa78cb1dab50ee}{set\_position}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structpose__t}{pose\_t}}\ \&newpos=\mbox{\hyperlink{classOdometryBase_a60141a41df6a5599c952b74578c95c7f}{zero\_pos}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structpose__t}{pose\_t}}\ calculate\_new\_pos(\mbox{\hyperlink{structrobot__specs__t}{robot\_specs\_t}}\ \&config,\ \mbox{\hyperlink{structpose__t}{pose\_t}}\ \&stored\_info,\ \textcolor{keywordtype}{double}\ lside\_diff,\ \textcolor{keywordtype}{double}\ rside\_diff,\ \textcolor{keywordtype}{double}\ angle\_deg);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ vex::motor\_group\ *left\_side,\ *right\_side;}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classCustomEncoder}{CustomEncoder}}\ *left\_enc,\ *right\_enc;}
+\DoxyCodeLine{00064\ \ \ \ \ vex::inertial\ *imu;}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{structrobot__specs__t}{robot\_specs\_t}}\ \&config;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{double}\ rotation\_offset\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ }
+\DoxyCodeLine{00069\ \};}
+
+\end{DoxyCode}

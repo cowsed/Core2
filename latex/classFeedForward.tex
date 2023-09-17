@@ -1,0 +1,81 @@
+\doxysection{Feed\+Forward Class Reference}
+\hypertarget{classFeedForward}{}\label{classFeedForward}\index{FeedForward@{FeedForward}}
+
+
+{\ttfamily \#include $<$feedforward.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structFeedForward_1_1ff__config__t}{ff\+\_\+config\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFeedForward_aeea5ddbbcc6e75a479442cf69954665c}{Feed\+Forward}} (\mbox{\hyperlink{structFeedForward_1_1ff__config__t}{ff\+\_\+config\+\_\+t}} \&cfg)
+\item 
+double \mbox{\hyperlink{classFeedForward_a2e2f7c12076225fa1dfd5f18aa210290}{calculate}} (double v, double a, double pid\+\_\+ref=0.\+0)
+\begin{DoxyCompactList}\small\item\em Perform the feedforward calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classFeedForward}{Feed\+Forward}
+
+Stores the feedfoward constants, and allows for quick computation. Feedfoward should be used in systems that require smooth precise movements and have high inertia, such as drivetrains and lifts.
+
+This is best used alongside a \doxylink{classPID}{PID} loop, with the form\+: output = pid.\+get() + feedforward.\+calculate(v, a);
+
+In this case, the feedforward does the majority of the heavy lifting, and the pid loop only corrects for inconsistencies
+
+For information about tuning feedforward, I reccommend looking at this post\+: \href{https://www.chiefdelphi.com/t/paper-frc-drivetrain-characterization/160915}{\texttt{ https\+://www.\+chiefdelphi.\+com/t/paper-\/frc-\/drivetrain-\/characterization/160915}} (yes I know it\textquotesingle{}s for FRC but trust me, it\textquotesingle{}s useful)
+
+\begin{DoxyAuthor}{Author}
+Ryan Mc\+Gee 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6/13/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classFeedForward_aeea5ddbbcc6e75a479442cf69954665c}\label{classFeedForward_aeea5ddbbcc6e75a479442cf69954665c} 
+\index{FeedForward@{FeedForward}!FeedForward@{FeedForward}}
+\index{FeedForward@{FeedForward}!FeedForward@{FeedForward}}
+\doxysubsubsection{\texorpdfstring{FeedForward()}{FeedForward()}}
+{\footnotesize\ttfamily Feed\+Forward\+::\+Feed\+Forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structFeedForward_1_1ff__config__t}{ff\+\_\+config\+\_\+t}} \&}]{cfg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a \doxylink{classFeedForward}{Feed\+Forward} object. 
+\begin{DoxyParams}{Parameters}
+{\em cfg} & Configuration Struct for tuning \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classFeedForward_a2e2f7c12076225fa1dfd5f18aa210290}\label{classFeedForward_a2e2f7c12076225fa1dfd5f18aa210290} 
+\index{FeedForward@{FeedForward}!calculate@{calculate}}
+\index{calculate@{calculate}!FeedForward@{FeedForward}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily double Feed\+Forward\+::calculate (\begin{DoxyParamCaption}\item[{double}]{v,  }\item[{double}]{a,  }\item[{double}]{pid\+\_\+ref = {\ttfamily 0.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Perform the feedforward calculation. 
+
+This calculation is the equation\+: F = kG + k\+S\texorpdfstring{$\ast$}{*}sgn(v) + k\+V\texorpdfstring{$\ast$}{*}v + k\+A\texorpdfstring{$\ast$}{*}a
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Requested velocity of system \\
+\hline
+{\em a} & Requested acceleration of system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A feedforward that should closely represent the system if tuned correctly 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/feedforward.\+h\end{DoxyCompactItemize}

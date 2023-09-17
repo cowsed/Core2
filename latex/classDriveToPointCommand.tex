@@ -1,0 +1,105 @@
+\doxysection{Drive\+To\+Point\+Command Class Reference}
+\hypertarget{classDriveToPointCommand}{}\label{classDriveToPointCommand}\index{DriveToPointCommand@{DriveToPointCommand}}
+
+
+{\ttfamily \#include $<$drive\+\_\+commands.\+h$>$}
+
+Inheritance diagram for Drive\+To\+Point\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDriveToPointCommand}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDriveToPointCommand_ad9d5b904185abbddde096dc87e02f049}{Drive\+To\+Point\+Command}} (\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&drive\+\_\+sys, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double x, double y, direction\+Type dir, double max\+\_\+speed=1)
+\item 
+\mbox{\hyperlink{classDriveToPointCommand_a21c435310e14d6345cca536d98701d91}{Drive\+To\+Point\+Command}} (\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&drive\+\_\+sys, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, \mbox{\hyperlink{structpoint__t}{point\+\_\+t}} point, direction\+Type dir, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classDriveToPointCommand_a8ed58921bc3eeb8c04d0b11b4f7e4fbe}{run}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAutoCommand}{Auto\+Command}} \texorpdfstring{$\ast$}{*} {\bfseries with\+Timeout} (double t\+\_\+seconds)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classAutoCommand_ac3be7be26e49981ad1978491fd313472}{timeout\+\_\+seconds}} = default\+\_\+timeout
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double {\bfseries default\+\_\+timeout} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAutoCommand}{Auto\+Command} wrapper class for the drive\+\_\+to\+\_\+point function in the \doxylink{classTankDrive}{Tank\+Drive} class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDriveToPointCommand_ad9d5b904185abbddde096dc87e02f049}\label{classDriveToPointCommand_ad9d5b904185abbddde096dc87e02f049} 
+\index{DriveToPointCommand@{DriveToPointCommand}!DriveToPointCommand@{DriveToPointCommand}}
+\index{DriveToPointCommand@{DriveToPointCommand}!DriveToPointCommand@{DriveToPointCommand}}
+\doxysubsubsection{\texorpdfstring{DriveToPointCommand()}{DriveToPointCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Drive\+To\+Point\+Command\+::\+Drive\+To\+Point\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&}]{drive\+\_\+sys,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{direction\+Type}]{dir,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Construct a Drive\+Forward Command 
+\begin{DoxyParams}{Parameters}
+{\em drive\+\_\+sys} & the drive system we are commanding \\
+\hline
+{\em feedback} & the feedback controller we are using to execute the drive \\
+\hline
+{\em x} & where to drive in the x dimension \\
+\hline
+{\em y} & where to drive in the y dimension \\
+\hline
+{\em dir} & the direction to drive \\
+\hline
+{\em max\+\_\+speed} & 0 -\/\texorpdfstring{$>$}{>} 1 percentage of the drive systems speed to drive at \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDriveToPointCommand_a21c435310e14d6345cca536d98701d91}\label{classDriveToPointCommand_a21c435310e14d6345cca536d98701d91} 
+\index{DriveToPointCommand@{DriveToPointCommand}!DriveToPointCommand@{DriveToPointCommand}}
+\index{DriveToPointCommand@{DriveToPointCommand}!DriveToPointCommand@{DriveToPointCommand}}
+\doxysubsubsection{\texorpdfstring{DriveToPointCommand()}{DriveToPointCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Drive\+To\+Point\+Command\+::\+Drive\+To\+Point\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&}]{drive\+\_\+sys,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{\mbox{\hyperlink{structpoint__t}{point\+\_\+t}}}]{point,  }\item[{direction\+Type}]{dir,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Construct a Drive\+Forward Command 
+\begin{DoxyParams}{Parameters}
+{\em drive\+\_\+sys} & the drive system we are commanding \\
+\hline
+{\em feedback} & the feedback controller we are using to execute the drive \\
+\hline
+{\em point} & the point to drive to \\
+\hline
+{\em dir} & the direction to drive \\
+\hline
+{\em max\+\_\+speed} & 0 -\/\texorpdfstring{$>$}{>} 1 percentage of the drive systems speed to drive at \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDriveToPointCommand_a8ed58921bc3eeb8c04d0b11b4f7e4fbe}\label{classDriveToPointCommand_a8ed58921bc3eeb8c04d0b11b4f7e4fbe} 
+\index{DriveToPointCommand@{DriveToPointCommand}!run@{run}}
+\index{run@{run}!DriveToPointCommand@{DriveToPointCommand}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily bool Drive\+To\+Point\+Command\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Run drive\+\_\+to\+\_\+point Overrides run from \doxylink{classAutoCommand}{Auto\+Command} \begin{DoxyReturn}{Returns}
+true when execution is complete, false otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a9f58c576ca6378b18a4136f60df50560}{Auto\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/command\+\_\+structure/drive\+\_\+commands.\+h\item 
+src/utils/command\+\_\+structure/drive\+\_\+commands.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+\doxysection{robot\+\_\+specs.\+h}
+\hypertarget{robot__specs_8h_source}{}\label{robot__specs_8h_source}\index{include/robot\_specs.h@{include/robot\_specs.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/pid.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/feedback\_base.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00012\ \{\ \ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobot__specs__t_a37a65da54459d805cf1370cc6330bce0}{robot\_radius}};\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobot__specs__t_acf12b29aa6a86cc09b2ef868f9e77a31}{odom\_wheel\_diam}};\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobot__specs__t_a8c454d8b38efdd15dfa6f075c40e4ec7}{odom\_gear\_ratio}};\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobot__specs__t_afb03c2e2cbc0d8fd6686c9421e016dec}{dist\_between\_wheels}};\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobot__specs__t_aa9fc95ea4c235f455b712ac0cf5aa536}{drive\_correction\_cutoff}};\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classFeedback}{Feedback}}\ *\mbox{\hyperlink{structrobot__specs__t_a828213e8d672431bd3bb87e6484db83f}{drive\_feedback}};\ }
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classFeedback}{Feedback}}\ *\mbox{\hyperlink{structrobot__specs__t_af8c8492ba755766847bb21b960b91bfe}{turn\_feedback}};\ }
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{structPID_1_1pid__config__t}{PID::pid\_config\_t}}\ \mbox{\hyperlink{structrobot__specs__t_a23d091e4a5258c11db6cd9753b598d06}{correction\_pid}};\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \}\ \mbox{\hyperlink{structrobot__specs__t}{robot\_specs\_t}};}
+
+\end{DoxyCode}

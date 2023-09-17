@@ -1,0 +1,78 @@
+\doxysection{Wait\+Until\+Up\+To\+Speed\+Command Class Reference}
+\hypertarget{classWaitUntilUpToSpeedCommand}{}\label{classWaitUntilUpToSpeedCommand}\index{WaitUntilUpToSpeedCommand@{WaitUntilUpToSpeedCommand}}
+
+
+{\ttfamily \#include $<$flywheel\+\_\+commands.\+h$>$}
+
+Inheritance diagram for Wait\+Until\+Up\+To\+Speed\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classWaitUntilUpToSpeedCommand}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWaitUntilUpToSpeedCommand_afd000a8f148291a9d2310b76b9354fea}{Wait\+Until\+Up\+To\+Speed\+Command}} (\mbox{\hyperlink{classFlywheel}{Flywheel}} \&flywheel, int threshold\+\_\+rpm)
+\item 
+bool \mbox{\hyperlink{classWaitUntilUpToSpeedCommand_a38f75c01a4740d87a380c15cc51c6396}{run}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classAutoCommand_a68475854d11e7c3be90e9c6e8fc9e982}{on\+\_\+timeout}} ()
+\item 
+\mbox{\hyperlink{classAutoCommand}{Auto\+Command}} \texorpdfstring{$\ast$}{*} {\bfseries with\+Timeout} (double t\+\_\+seconds)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classAutoCommand_ac3be7be26e49981ad1978491fd313472}{timeout\+\_\+seconds}} = default\+\_\+timeout
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double {\bfseries default\+\_\+timeout} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAutoCommand}{Auto\+Command} that listens to the \doxylink{classFlywheel}{Flywheel} and waits until it is at its target speed +/-\/ the specified threshold 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWaitUntilUpToSpeedCommand_afd000a8f148291a9d2310b76b9354fea}\label{classWaitUntilUpToSpeedCommand_afd000a8f148291a9d2310b76b9354fea} 
+\index{WaitUntilUpToSpeedCommand@{WaitUntilUpToSpeedCommand}!WaitUntilUpToSpeedCommand@{WaitUntilUpToSpeedCommand}}
+\index{WaitUntilUpToSpeedCommand@{WaitUntilUpToSpeedCommand}!WaitUntilUpToSpeedCommand@{WaitUntilUpToSpeedCommand}}
+\doxysubsubsection{\texorpdfstring{WaitUntilUpToSpeedCommand()}{WaitUntilUpToSpeedCommand()}}
+{\footnotesize\ttfamily Wait\+Until\+Up\+To\+Speed\+Command\+::\+Wait\+Until\+Up\+To\+Speed\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlywheel}{Flywheel}} \&}]{flywheel,  }\item[{int}]{threshold\+\_\+rpm }\end{DoxyParamCaption})}
+
+Creat a \doxylink{classWaitUntilUpToSpeedCommand}{Wait\+Until\+Up\+To\+Speed\+Command} 
+\begin{DoxyParams}{Parameters}
+{\em flywheel} & the flywheel system we are commanding \\
+\hline
+{\em threshold\+\_\+rpm} & the threshold over and under the flywheel target RPM that we define to be acceptable \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWaitUntilUpToSpeedCommand_a38f75c01a4740d87a380c15cc51c6396}\label{classWaitUntilUpToSpeedCommand_a38f75c01a4740d87a380c15cc51c6396} 
+\index{WaitUntilUpToSpeedCommand@{WaitUntilUpToSpeedCommand}!run@{run}}
+\index{run@{run}!WaitUntilUpToSpeedCommand@{WaitUntilUpToSpeedCommand}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily bool Wait\+Until\+Up\+To\+Speed\+Command\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Run spin\+\_\+manual Overrides run from \doxylink{classAutoCommand}{Auto\+Command} \begin{DoxyReturn}{Returns}
+true when execution is complete, false otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a9f58c576ca6378b18a4136f60df50560}{Auto\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/command\+\_\+structure/flywheel\+\_\+commands.\+h\item 
+src/utils/command\+\_\+structure/flywheel\+\_\+commands.\+cpp\end{DoxyCompactItemize}

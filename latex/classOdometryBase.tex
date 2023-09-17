@@ -1,0 +1,306 @@
+\doxysection{Odometry\+Base Class Reference}
+\hypertarget{classOdometryBase}{}\label{classOdometryBase}\index{OdometryBase@{OdometryBase}}
+
+
+{\ttfamily \#include $<$odometry\+\_\+base.\+h$>$}
+
+Inheritance diagram for Odometry\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classOdometryBase}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOdometryBase_a61286bd1c5105adbfa5b52c74f9e9466}{Odometry\+Base}} (bool is\+\_\+async)
+\item 
+\mbox{\hyperlink{structpose__t}{pose\+\_\+t}} \mbox{\hyperlink{classOdometryBase_a423e398bd9ec7038abe7786482db6dd0}{get\+\_\+position}} (void)
+\item 
+virtual void \mbox{\hyperlink{classOdometryBase_a0abfc14f2b809c9bcf4ed8485f0b30d3}{set\+\_\+position}} (const \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} \&newpos=\mbox{\hyperlink{classOdometryBase_a60141a41df6a5599c952b74578c95c7f}{zero\+\_\+pos}})
+\item 
+virtual \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} \mbox{\hyperlink{classOdometryBase_a3bbff671a85247fff3a39e7b0c2cb242}{update}} ()=0
+\item 
+void \mbox{\hyperlink{classOdometryBase_ab65ccaa80d4bb0d0aa20e82b3b991436}{end\+\_\+async}} ()
+\item 
+double \mbox{\hyperlink{classOdometryBase_a96c7be68db7424ddbe3704770dd1889f}{get\+\_\+speed}} ()
+\item 
+double \mbox{\hyperlink{classOdometryBase_a3223bac952f79bf910b979690499b965}{get\+\_\+accel}} ()
+\item 
+double \mbox{\hyperlink{classOdometryBase_af30d97a35e9e9c4f9be0a81390e6c0f1}{get\+\_\+angular\+\_\+speed\+\_\+deg}} ()
+\item 
+double \mbox{\hyperlink{classOdometryBase_a456e6433e51971d2640ff96ed3a59432}{get\+\_\+angular\+\_\+accel\+\_\+deg}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classOdometryBase_a17a014f79b282ddfb715835214f3e2fb}{background\+\_\+task}} (void \texorpdfstring{$\ast$}{*}ptr)
+\item 
+static double \mbox{\hyperlink{classOdometryBase_a58d8c7bfd6456038d025c39580971bd6}{pos\+\_\+diff}} (\mbox{\hyperlink{structpose__t}{pose\+\_\+t}} start\+\_\+pos, \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} end\+\_\+pos)
+\item 
+static double \mbox{\hyperlink{classOdometryBase_af179c9d2004d114e1ab066bf8e7f00ca}{rot\+\_\+diff}} (\mbox{\hyperlink{structpose__t}{pose\+\_\+t}} pos1, \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} pos2)
+\item 
+static double \mbox{\hyperlink{classOdometryBase_a70ec71e9fb2e14f0a191a6bac927d36b}{smallest\+\_\+angle}} (double start\+\_\+deg, double end\+\_\+deg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classOdometryBase_ae6e35ee98b4410f034cd37c0d2055a8d}\label{classOdometryBase_ae6e35ee98b4410f034cd37c0d2055a8d} 
+bool {\bfseries end\+\_\+task} = false
+\begin{DoxyCompactList}\small\item\em end\+\_\+task is true if we instruct the odometry thread to shut down \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} \mbox{\hyperlink{classOdometryBase_a60141a41df6a5599c952b74578c95c7f}{zero\+\_\+pos}} = \{.x=0.\+0L, .y=0.\+0L, .rot=90.\+0L\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vex\+::task \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classOdometryBase_ae5308f20a4dfef9594631010c7612dab}{handle}}
+\item 
+vex\+::mutex \mbox{\hyperlink{classOdometryBase_a88bb48858ca6ff8300a41e23482ec6f6}{mut}}
+\item 
+\mbox{\hyperlink{structpose__t}{pose\+\_\+t}} \mbox{\hyperlink{classOdometryBase_a6f85d2eb4866a86d4c39ceae87ea79e2}{current\+\_\+pos}}
+\item 
+double \mbox{\hyperlink{classOdometryBase_a6119ab3ce0b685e67a8b57871e0a2c26}{speed}}
+\item 
+double \mbox{\hyperlink{classOdometryBase_a94c814dfb542dd891d84db7e74537249}{accel}}
+\item 
+double \mbox{\hyperlink{classOdometryBase_a250ceb6ed296ea579e37851e4a0048fb}{ang\+\_\+speed\+\_\+deg}}
+\item 
+double \mbox{\hyperlink{classOdometryBase_a01f14bfcecbcde7a74b9b98376deb19f}{ang\+\_\+accel\+\_\+deg}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classOdometryBase}{Odometry\+Base}
+
+This base class contains all the shared code between different implementations of odometry. It handles the asynchronous management, position input/output and basic math functions, and holds positional types specific to field orientation.
+
+All future odometry implementations should extend this file and redefine \doxylink{classOdometryBase_a3bbff671a85247fff3a39e7b0c2cb242}{update()} function.
+
+\begin{DoxyAuthor}{Author}
+Ryan Mc\+Gee 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Aug 11 2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classOdometryBase_a61286bd1c5105adbfa5b52c74f9e9466}\label{classOdometryBase_a61286bd1c5105adbfa5b52c74f9e9466} 
+\index{OdometryBase@{OdometryBase}!OdometryBase@{OdometryBase}}
+\index{OdometryBase@{OdometryBase}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{OdometryBase()}{OdometryBase()}}
+{\footnotesize\ttfamily Odometry\+Base\+::\+Odometry\+Base (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+async }\end{DoxyParamCaption})}
+
+Construct a new Odometry Base object
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+async} & True to run constantly in the background, false to call \doxylink{classOdometryBase_a3bbff671a85247fff3a39e7b0c2cb242}{update()} manually \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classOdometryBase_a17a014f79b282ddfb715835214f3e2fb}\label{classOdometryBase_a17a014f79b282ddfb715835214f3e2fb} 
+\index{OdometryBase@{OdometryBase}!background\_task@{background\_task}}
+\index{background\_task@{background\_task}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{background\_task()}{background\_task()}}
+{\footnotesize\ttfamily int Odometry\+Base\+::background\+\_\+task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Function that runs in the background task. This function pointer is passed to the vex\+::task constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Pointer to \doxylink{classOdometryBase}{Odometry\+Base} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Required integer return code. Unused. 
+\end{DoxyReturn}
+\Hypertarget{classOdometryBase_ab65ccaa80d4bb0d0aa20e82b3b991436}\label{classOdometryBase_ab65ccaa80d4bb0d0aa20e82b3b991436} 
+\index{OdometryBase@{OdometryBase}!end\_async@{end\_async}}
+\index{end\_async@{end\_async}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{end\_async()}{end\_async()}}
+{\footnotesize\ttfamily void Odometry\+Base\+::end\+\_\+async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+End the background task. Cannot be restarted. If the user wants to end the thread but keep the data up to date, they must run the \doxylink{classOdometryBase_a3bbff671a85247fff3a39e7b0c2cb242}{update()} function manually from then on. \Hypertarget{classOdometryBase_a3223bac952f79bf910b979690499b965}\label{classOdometryBase_a3223bac952f79bf910b979690499b965} 
+\index{OdometryBase@{OdometryBase}!get\_accel@{get\_accel}}
+\index{get\_accel@{get\_accel}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{get\_accel()}{get\_accel()}}
+{\footnotesize\ttfamily double Odometry\+Base\+::get\+\_\+accel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current acceleration \begin{DoxyReturn}{Returns}
+the acceleration rate of the robot (inch/s\texorpdfstring{$^\wedge$}{\string^}2) 
+\end{DoxyReturn}
+\Hypertarget{classOdometryBase_a456e6433e51971d2640ff96ed3a59432}\label{classOdometryBase_a456e6433e51971d2640ff96ed3a59432} 
+\index{OdometryBase@{OdometryBase}!get\_angular\_accel\_deg@{get\_angular\_accel\_deg}}
+\index{get\_angular\_accel\_deg@{get\_angular\_accel\_deg}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{get\_angular\_accel\_deg()}{get\_angular\_accel\_deg()}}
+{\footnotesize\ttfamily double Odometry\+Base\+::get\+\_\+angular\+\_\+accel\+\_\+deg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current angular acceleration in degrees \begin{DoxyReturn}{Returns}
+the angular acceleration at which we are turning (deg/s\texorpdfstring{$^\wedge$}{\string^}2) 
+\end{DoxyReturn}
+\Hypertarget{classOdometryBase_af30d97a35e9e9c4f9be0a81390e6c0f1}\label{classOdometryBase_af30d97a35e9e9c4f9be0a81390e6c0f1} 
+\index{OdometryBase@{OdometryBase}!get\_angular\_speed\_deg@{get\_angular\_speed\_deg}}
+\index{get\_angular\_speed\_deg@{get\_angular\_speed\_deg}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{get\_angular\_speed\_deg()}{get\_angular\_speed\_deg()}}
+{\footnotesize\ttfamily double Odometry\+Base\+::get\+\_\+angular\+\_\+speed\+\_\+deg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current angular speed in degrees \begin{DoxyReturn}{Returns}
+the angular velocity at which we are turning (deg/s) 
+\end{DoxyReturn}
+\Hypertarget{classOdometryBase_a423e398bd9ec7038abe7786482db6dd0}\label{classOdometryBase_a423e398bd9ec7038abe7786482db6dd0} 
+\index{OdometryBase@{OdometryBase}!get\_position@{get\_position}}
+\index{get\_position@{get\_position}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} Odometry\+Base\+::get\+\_\+position (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Gets the current position and rotation \begin{DoxyReturn}{Returns}
+the position that the odometry believes the robot is at
+\end{DoxyReturn}
+Gets the current position and rotation \Hypertarget{classOdometryBase_a96c7be68db7424ddbe3704770dd1889f}\label{classOdometryBase_a96c7be68db7424ddbe3704770dd1889f} 
+\index{OdometryBase@{OdometryBase}!get\_speed@{get\_speed}}
+\index{get\_speed@{get\_speed}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{get\_speed()}{get\_speed()}}
+{\footnotesize\ttfamily double Odometry\+Base\+::get\+\_\+speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current speed \begin{DoxyReturn}{Returns}
+the speed at which the robot is moving and grooving (inch/s) 
+\end{DoxyReturn}
+\Hypertarget{classOdometryBase_a58d8c7bfd6456038d025c39580971bd6}\label{classOdometryBase_a58d8c7bfd6456038d025c39580971bd6} 
+\index{OdometryBase@{OdometryBase}!pos\_diff@{pos\_diff}}
+\index{pos\_diff@{pos\_diff}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{pos\_diff()}{pos\_diff()}}
+{\footnotesize\ttfamily double Odometry\+Base\+::pos\+\_\+diff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpose__t}{pose\+\_\+t}}}]{start\+\_\+pos,  }\item[{\mbox{\hyperlink{structpose__t}{pose\+\_\+t}}}]{end\+\_\+pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the distance between two points 
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+pos} & distance from this point \\
+\hline
+{\em end\+\_\+pos} & to this point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the euclidean distance between start\+\_\+pos and end\+\_\+pos 
+\end{DoxyReturn}
+\Hypertarget{classOdometryBase_af179c9d2004d114e1ab066bf8e7f00ca}\label{classOdometryBase_af179c9d2004d114e1ab066bf8e7f00ca} 
+\index{OdometryBase@{OdometryBase}!rot\_diff@{rot\_diff}}
+\index{rot\_diff@{rot\_diff}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{rot\_diff()}{rot\_diff()}}
+{\footnotesize\ttfamily double Odometry\+Base\+::rot\+\_\+diff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpose__t}{pose\+\_\+t}}}]{pos1,  }\item[{\mbox{\hyperlink{structpose__t}{pose\+\_\+t}}}]{pos2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the change in rotation between two points 
+\begin{DoxyParams}{Parameters}
+{\em pos1} & position with initial rotation \\
+\hline
+{\em pos2} & position with final rotation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+change in rotation between pos1 and pos2
+\end{DoxyReturn}
+Get the change in rotation between two points \Hypertarget{classOdometryBase_a0abfc14f2b809c9bcf4ed8485f0b30d3}\label{classOdometryBase_a0abfc14f2b809c9bcf4ed8485f0b30d3} 
+\index{OdometryBase@{OdometryBase}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}}
+{\footnotesize\ttfamily void Odometry\+Base\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} \&}]{newpos = {\ttfamily \mbox{\hyperlink{classOdometryBase_a60141a41df6a5599c952b74578c95c7f}{zero\+\_\+pos}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the current position of the robot 
+\begin{DoxyParams}{Parameters}
+{\em newpos} & the new position that the odometry will believe it is at\\
+\hline
+\end{DoxyParams}
+Sets the current position of the robot 
+
+Reimplemented in \mbox{\hyperlink{classOdometryTank_a6c24c0854b526a6f3aaa78cb1dab50ee}{Odometry\+Tank}}.
+
+\Hypertarget{classOdometryBase_a70ec71e9fb2e14f0a191a6bac927d36b}\label{classOdometryBase_a70ec71e9fb2e14f0a191a6bac927d36b} 
+\index{OdometryBase@{OdometryBase}!smallest\_angle@{smallest\_angle}}
+\index{smallest\_angle@{smallest\_angle}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{smallest\_angle()}{smallest\_angle()}}
+{\footnotesize\ttfamily double Odometry\+Base\+::smallest\+\_\+angle (\begin{DoxyParamCaption}\item[{double}]{start\+\_\+deg,  }\item[{double}]{end\+\_\+deg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the smallest difference in angle between a start heading and end heading. Returns the difference between -\/180 degrees and +180 degrees, representing the robot turning left or right, respectively. 
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+deg} & intitial angle (degrees) \\
+\hline
+{\em end\+\_\+deg} & final angle (degrees) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the smallest angle from the initial to the final angle. This takes into account the wrapping of rotations around 360 degrees
+\end{DoxyReturn}
+Get the smallest difference in angle between a start heading and end heading. Returns the difference between -\/180 degrees and +180 degrees, representing the robot turning left or right, respectively. \Hypertarget{classOdometryBase_a3bbff671a85247fff3a39e7b0c2cb242}\label{classOdometryBase_a3bbff671a85247fff3a39e7b0c2cb242} 
+\index{OdometryBase@{OdometryBase}!update@{update}}
+\index{update@{update}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} Odometry\+Base\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Update the current position on the field based on the sensors \begin{DoxyReturn}{Returns}
+the location that the robot is at after the odometry does its calculations 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classOdometry3Wheel_ab14ab2f9a7047b5852840daed957bb34}{Odometry3\+Wheel}}, and \mbox{\hyperlink{classOdometryTank_a1a8f1251f7bce81e9153391df1ab42f7}{Odometry\+Tank}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classOdometryBase_a94c814dfb542dd891d84db7e74537249}\label{classOdometryBase_a94c814dfb542dd891d84db7e74537249} 
+\index{OdometryBase@{OdometryBase}!accel@{accel}}
+\index{accel@{accel}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{accel}{accel}}
+{\footnotesize\ttfamily double Odometry\+Base\+::accel\hspace{0.3cm}{\ttfamily [protected]}}
+
+the rate at which we are accelerating (inch/s\texorpdfstring{$^\wedge$}{\string^}2) \Hypertarget{classOdometryBase_a01f14bfcecbcde7a74b9b98376deb19f}\label{classOdometryBase_a01f14bfcecbcde7a74b9b98376deb19f} 
+\index{OdometryBase@{OdometryBase}!ang\_accel\_deg@{ang\_accel\_deg}}
+\index{ang\_accel\_deg@{ang\_accel\_deg}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{ang\_accel\_deg}{ang\_accel\_deg}}
+{\footnotesize\ttfamily double Odometry\+Base\+::ang\+\_\+accel\+\_\+deg\hspace{0.3cm}{\ttfamily [protected]}}
+
+the rate at which we are accelerating our turn (deg/s\texorpdfstring{$^\wedge$}{\string^}2) \Hypertarget{classOdometryBase_a250ceb6ed296ea579e37851e4a0048fb}\label{classOdometryBase_a250ceb6ed296ea579e37851e4a0048fb} 
+\index{OdometryBase@{OdometryBase}!ang\_speed\_deg@{ang\_speed\_deg}}
+\index{ang\_speed\_deg@{ang\_speed\_deg}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{ang\_speed\_deg}{ang\_speed\_deg}}
+{\footnotesize\ttfamily double Odometry\+Base\+::ang\+\_\+speed\+\_\+deg\hspace{0.3cm}{\ttfamily [protected]}}
+
+the speed at which we are turning (deg/s) \Hypertarget{classOdometryBase_a6f85d2eb4866a86d4c39ceae87ea79e2}\label{classOdometryBase_a6f85d2eb4866a86d4c39ceae87ea79e2} 
+\index{OdometryBase@{OdometryBase}!current\_pos@{current\_pos}}
+\index{current\_pos@{current\_pos}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{current\_pos}{current\_pos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} Odometry\+Base\+::current\+\_\+pos\hspace{0.3cm}{\ttfamily [protected]}}
+
+Current position of the robot in terms of x,y,rotation \Hypertarget{classOdometryBase_ae5308f20a4dfef9594631010c7612dab}\label{classOdometryBase_ae5308f20a4dfef9594631010c7612dab} 
+\index{OdometryBase@{OdometryBase}!handle@{handle}}
+\index{handle@{handle}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{handle}{handle}}
+{\footnotesize\ttfamily vex\+::task\texorpdfstring{$\ast$}{*} Odometry\+Base\+::handle\hspace{0.3cm}{\ttfamily [protected]}}
+
+handle to the vex task that is running the odometry code \Hypertarget{classOdometryBase_a88bb48858ca6ff8300a41e23482ec6f6}\label{classOdometryBase_a88bb48858ca6ff8300a41e23482ec6f6} 
+\index{OdometryBase@{OdometryBase}!mut@{mut}}
+\index{mut@{mut}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{mut}{mut}}
+{\footnotesize\ttfamily vex\+::mutex Odometry\+Base\+::mut\hspace{0.3cm}{\ttfamily [protected]}}
+
+Mutex to control multithreading \Hypertarget{classOdometryBase_a6119ab3ce0b685e67a8b57871e0a2c26}\label{classOdometryBase_a6119ab3ce0b685e67a8b57871e0a2c26} 
+\index{OdometryBase@{OdometryBase}!speed@{speed}}
+\index{speed@{speed}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily double Odometry\+Base\+::speed\hspace{0.3cm}{\ttfamily [protected]}}
+
+the speed at which we are travelling (inch/s) \Hypertarget{classOdometryBase_a60141a41df6a5599c952b74578c95c7f}\label{classOdometryBase_a60141a41df6a5599c952b74578c95c7f} 
+\index{OdometryBase@{OdometryBase}!zero\_pos@{zero\_pos}}
+\index{zero\_pos@{zero\_pos}!OdometryBase@{OdometryBase}}
+\doxysubsubsection{\texorpdfstring{zero\_pos}{zero\_pos}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{structpose__t}{pose\+\_\+t}} Odometry\+Base\+::zero\+\_\+pos = \{.x=0.\+0L, .y=0.\+0L, .rot=90.\+0L\}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+Zeroed position. X=0, Y=0, Rotation= 90 degrees 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/subsystems/odometry/odometry\+\_\+base.\+h\item 
+src/subsystems/odometry/odometry\+\_\+base.\+cpp\end{DoxyCompactItemize}

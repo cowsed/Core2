@@ -1,0 +1,232 @@
+\doxysection{Motion\+Controller Class Reference}
+\hypertarget{classMotionController}{}\label{classMotionController}\index{MotionController@{MotionController}}
+
+
+{\ttfamily \#include $<$motion\+\_\+controller.\+h$>$}
+
+Inheritance diagram for Motion\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMotionController}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t}{m\+\_\+profile\+\_\+cfg\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMotionController_a076c5aa4ea383dccaeec76f7554a7467}{Motion\+Controller}} (\mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t}{m\+\_\+profile\+\_\+cfg\+\_\+t}} \&config)
+\begin{DoxyCompactList}\small\item\em Construct a new Motion Controller object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMotionController_af0d665d9916111cbce677da6df6b6667}{init}} (double start\+\_\+pt, double end\+\_\+pt) override
+\begin{DoxyCompactList}\small\item\em Initialize the motion profile for a new movement This will also reset the \doxylink{classPID}{PID} and profile timers. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMotionController_a86ef0ef19858b5b407f7406bb5da30af}{update}} (double sensor\+\_\+val) override
+\begin{DoxyCompactList}\small\item\em Update the motion profile with a new sensor value. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMotionController_a2a1944f590618cd91770364aea416cd5}{get}} () override
+\item 
+void \mbox{\hyperlink{classMotionController_a944c245002a1eb124dd8df40de4fcc57}{set\+\_\+limits}} (double lower, double upper) override
+\item 
+bool \mbox{\hyperlink{classMotionController_aa9e2af88b848646889deb1d43a283173}{is\+\_\+on\+\_\+target}} () override
+\item 
+\mbox{\hyperlink{structmotion__t}{motion\+\_\+t}} \mbox{\hyperlink{classMotionController_ab958ce97fbc4929f4dd03965671e8d4d}{get\+\_\+motion}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classFeedback}{Feedback}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual Feedback\+::\+Feedback\+Type {\bfseries get\+\_\+type} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structFeedForward_1_1ff__config__t}{Feed\+Forward\+::ff\+\_\+config\+\_\+t}} \mbox{\hyperlink{classMotionController_a20749b6a4bd3cf509a3acf682831eb00}{tune\+\_\+feedforward}} (\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&drive, \mbox{\hyperlink{classOdometryTank}{Odometry\+Tank}} \&odometry, double pct=0.\+6, double duration=2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classFeedback}{Feedback}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classFeedback_ac82a001abba300290790eb8414a84dce}\label{classFeedback_ac82a001abba300290790eb8414a84dce} 
+enum {\bfseries Feedback\+Type} \{ {\bfseries PIDType}
+, {\bfseries Feedforward\+Type}
+, {\bfseries Other\+Type}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Motion Controller class
+
+This class defines a top-\/level motion profile, which can act as an intermediate between a subsystem class and the motors themselves
+
+This takes the constants kS, kV, kA, kP, kI, kD, max\+\_\+v and acceleration and wraps around a feedforward, \doxylink{classPID}{PID} and trapezoid profile. It does so with the following formula\+:
+
+out = feedfoward.\+calculate(motion\+\_\+profile.\+get(time\+\_\+s)) + pid.\+get(motion\+\_\+profile.\+get(time\+\_\+s))
+
+For \doxylink{classPID}{PID} and Feedforward specific formulae, see \doxylink{pid_8h_source}{pid.\+h}, \doxylink{feedforward_8h_source}{feedforward.\+h}, and \doxylink{trapezoid__profile_8h_source}{trapezoid\+\_\+profile.\+h}
+
+\begin{DoxyAuthor}{Author}
+Ryan Mc\+Gee 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+7/13/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMotionController_a076c5aa4ea383dccaeec76f7554a7467}\label{classMotionController_a076c5aa4ea383dccaeec76f7554a7467} 
+\index{MotionController@{MotionController}!MotionController@{MotionController}}
+\index{MotionController@{MotionController}!MotionController@{MotionController}}
+\doxysubsubsection{\texorpdfstring{MotionController()}{MotionController()}}
+{\footnotesize\ttfamily Motion\+Controller\+::\+Motion\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMotionController_1_1m__profile__cfg__t}{m\+\_\+profile\+\_\+cfg\+\_\+t}} \&}]{config }\end{DoxyParamCaption})}
+
+
+
+Construct a new Motion Controller object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & The definition of how the robot is able to move max\+\_\+v Maximum velocity the movement is capable of accel Acceleration / deceleration of the movement pid\+\_\+cfg Definitions of kP, kI, and kD ff\+\_\+cfg Definitions of kS, kV, and kA \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMotionController_a2a1944f590618cd91770364aea416cd5}\label{classMotionController_a2a1944f590618cd91770364aea416cd5} 
+\index{MotionController@{MotionController}!get@{get}}
+\index{get@{get}!MotionController@{MotionController}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily double Motion\+Controller\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the last saved result from the feedback controller 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFeedback_ac44bb519a6f4e25c8e8250f3d30ab359}{Feedback}}.
+
+\Hypertarget{classMotionController_ab958ce97fbc4929f4dd03965671e8d4d}\label{classMotionController_ab958ce97fbc4929f4dd03965671e8d4d} 
+\index{MotionController@{MotionController}!get\_motion@{get\_motion}}
+\index{get\_motion@{get\_motion}!MotionController@{MotionController}}
+\doxysubsubsection{\texorpdfstring{get\_motion()}{get\_motion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmotion__t}{motion\+\_\+t}} Motion\+Controller\+::get\+\_\+motion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The current postion, velocity and acceleration setpoints 
+\end{DoxyReturn}
+\Hypertarget{classMotionController_af0d665d9916111cbce677da6df6b6667}\label{classMotionController_af0d665d9916111cbce677da6df6b6667} 
+\index{MotionController@{MotionController}!init@{init}}
+\index{init@{init}!MotionController@{MotionController}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Motion\+Controller\+::init (\begin{DoxyParamCaption}\item[{double}]{start\+\_\+pt,  }\item[{double}]{end\+\_\+pt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Initialize the motion profile for a new movement This will also reset the \doxylink{classPID}{PID} and profile timers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+pt} & Movement starting position \\
+\hline
+{\em end\+\_\+pt} & Movement ending posiiton \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFeedback_a22efb13216bfd51aea07e0b6e45135c1}{Feedback}}.
+
+\Hypertarget{classMotionController_aa9e2af88b848646889deb1d43a283173}\label{classMotionController_aa9e2af88b848646889deb1d43a283173} 
+\index{MotionController@{MotionController}!is\_on\_target@{is\_on\_target}}
+\index{is\_on\_target@{is\_on\_target}!MotionController@{MotionController}}
+\doxysubsubsection{\texorpdfstring{is\_on\_target()}{is\_on\_target()}}
+{\footnotesize\ttfamily bool Motion\+Controller\+::is\+\_\+on\+\_\+target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Whether or not the movement has finished, and the \doxylink{classPID}{PID} confirms it is on target 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFeedback_ae4cc835c374aab9761d22603d4329d34}{Feedback}}.
+
+\Hypertarget{classMotionController_a944c245002a1eb124dd8df40de4fcc57}\label{classMotionController_a944c245002a1eb124dd8df40de4fcc57} 
+\index{MotionController@{MotionController}!set\_limits@{set\_limits}}
+\index{set\_limits@{set\_limits}!MotionController@{MotionController}}
+\doxysubsubsection{\texorpdfstring{set\_limits()}{set\_limits()}}
+{\footnotesize\ttfamily void Motion\+Controller\+::set\+\_\+limits (\begin{DoxyParamCaption}\item[{double}]{lower,  }\item[{double}]{upper }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Clamp the upper and lower limits of the output. If both are 0, no limits should be applied. if limits are applied, the controller will not target any value below lower or above upper
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & upper limit \\
+\hline
+{\em upper} & lower limiet\\
+\hline
+\end{DoxyParams}
+Clamp the upper and lower limits of the output. If both are 0, no limits should be applied.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & Upper limit \\
+\hline
+{\em upper} & Lower limit \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFeedback_a533a10b65cfc998898bf054f8b141de2}{Feedback}}.
+
+\Hypertarget{classMotionController_a20749b6a4bd3cf509a3acf682831eb00}\label{classMotionController_a20749b6a4bd3cf509a3acf682831eb00} 
+\index{MotionController@{MotionController}!tune\_feedforward@{tune\_feedforward}}
+\index{tune\_feedforward@{tune\_feedforward}!MotionController@{MotionController}}
+\doxysubsubsection{\texorpdfstring{tune\_feedforward()}{tune\_feedforward()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structFeedForward_1_1ff__config__t}{Feed\+Forward\+::ff\+\_\+config\+\_\+t}} Motion\+Controller\+::tune\+\_\+feedforward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&}]{drive,  }\item[{\mbox{\hyperlink{classOdometryTank}{Odometry\+Tank}} \&}]{odometry,  }\item[{double}]{pct = {\ttfamily 0.6},  }\item[{double}]{duration = {\ttfamily 2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method attempts to characterize the robot\textquotesingle{}s drivetrain and automatically tune the feedforward. It does this by first calculating the kS (voltage to overcome static friction) by slowly increasing the voltage until it moves.
+
+Next is kV (voltage to sustain a certain velocity), where the robot will record it\textquotesingle{}s steady-\/state velocity at \textquotesingle{}pct\textquotesingle{} speed.
+
+Finally, kA (voltage needed to accelerate by a certain rate), where the robot will record the entire movement\textquotesingle{}s velocity and acceleration, record a plot of \mbox{[}X=(pct-\/k\+V\texorpdfstring{$\ast$}{*}\+V-\/kS), Y=(Acceleration)\mbox{]} along the movement, and since k\+A\texorpdfstring{$\ast$}{*}\+Accel = pct-\/k\+V\texorpdfstring{$\ast$}{*}\+V-\/kS, the reciprocal of the linear regression is the kA value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em drive} & The tankdrive to operate on \\
+\hline
+{\em odometry} & The robot\textquotesingle{}s odometry subsystem \\
+\hline
+{\em pct} & Maximum velocity in percent (0-\/\texorpdfstring{$>$}{>}1.\+0) \\
+\hline
+{\em duration} & Amount of time the robot should be moving for the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuned feedforward object 
+\end{DoxyReturn}
+\Hypertarget{classMotionController_a86ef0ef19858b5b407f7406bb5da30af}\label{classMotionController_a86ef0ef19858b5b407f7406bb5da30af} 
+\index{MotionController@{MotionController}!update@{update}}
+\index{update@{update}!MotionController@{MotionController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily double Motion\+Controller\+::update (\begin{DoxyParamCaption}\item[{double}]{sensor\+\_\+val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the motion profile with a new sensor value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor\+\_\+val} & Value from the sensor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the motor input generated from the motion profile 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classFeedback_adda5fc7642539996be00632954dfc41f}{Feedback}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/motion\+\_\+controller.\+h\item 
+src/utils/motion\+\_\+controller.\+cpp\end{DoxyCompactItemize}

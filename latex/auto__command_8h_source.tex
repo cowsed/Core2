@@ -1,0 +1,23 @@
+\doxysection{auto\+\_\+command.\+h}
+\hypertarget{auto__command_8h_source}{}\label{auto__command_8h_source}\index{include/utils/command\_structure/auto\_command.h@{include/utils/command\_structure/auto\_command.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}vex.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAutoCommand}{AutoCommand}}\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ default\_timeout\ =\ 10.0;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classAutoCommand_a9f58c576ca6378b18a4136f60df50560}{run}}()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAutoCommand_a68475854d11e7c3be90e9c6e8fc9e982}{on\_timeout}}()\{\}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classAutoCommand}{AutoCommand}}*\ withTimeout(\textcolor{keywordtype}{double}\ t\_seconds)\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classAutoCommand_ac3be7be26e49981ad1978491fd313472}{timeout\_seconds}}\ =\ t\_seconds;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classAutoCommand_ac3be7be26e49981ad1978491fd313472}{timeout\_seconds}}\ =\ default\_timeout;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

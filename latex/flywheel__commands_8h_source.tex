@@ -1,0 +1,71 @@
+\doxysection{flywheel\+\_\+commands.\+h}
+\hypertarget{flywheel__commands_8h_source}{}\label{flywheel__commands_8h_source}\index{include/utils/command\_structure/flywheel\_commands.h@{include/utils/command\_structure/flywheel\_commands.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../core/include/subsystems/flywheel.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/command\_structure/auto\_command.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSpinRPMCommand}{SpinRPMCommand}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classAutoCommand}{AutoCommand}}\ \{}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classSpinRPMCommand}{SpinRPMCommand}}(\mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel,\ \textcolor{keywordtype}{int}\ rpm);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSpinRPMCommand_af12f71f87967de0d9991272d9659b6ef}{run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Flywheel\ instance\ to\ run\ the\ function\ on}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ parameters\ for\ spinRPM}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ rpm;}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWaitUntilUpToSpeedCommand}{WaitUntilUpToSpeedCommand}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classAutoCommand}{AutoCommand}}\ \{}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classWaitUntilUpToSpeedCommand}{WaitUntilUpToSpeedCommand}}(\mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel,\ \textcolor{keywordtype}{int}\ threshold\_rpm);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classWaitUntilUpToSpeedCommand_a38f75c01a4740d87a380c15cc51c6396}{run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Flywheel\ instance\ to\ run\ the\ function\ on}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ if\ the\ actual\ speed\ is\ equal\ to\ the\ desired\ speed\ +/-\/\ this\ value,\ we\ are\ ready\ to\ fire}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ threshold\_rpm;}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFlywheelStopCommand}{FlywheelStopCommand}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classAutoCommand}{AutoCommand}}\ \{}
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{classFlywheelStopCommand}{FlywheelStopCommand}}(\mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classFlywheelStopCommand_a9be8ca8422bd7b5f5a03cbf8e21025a7}{run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ Flywheel\ instance\ to\ run\ the\ function\ on}}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel;}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFlywheelStopMotorsCommand}{FlywheelStopMotorsCommand}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classAutoCommand}{AutoCommand}}\ \{}
+\DoxyCodeLine{00100\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00105\ \ \ \mbox{\hyperlink{classFlywheelStopMotorsCommand}{FlywheelStopMotorsCommand}}(\mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classFlywheelStopMotorsCommand_ab5b75338d50c3674a5fe27a5e77698bc}{run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ Flywheel\ instance\ to\ run\ the\ function\ on}}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel;}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFlywheelStopNonTasksCommand}{FlywheelStopNonTasksCommand}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classAutoCommand}{AutoCommand}}\ \{}
+\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{classFlywheelStopNonTasksCommand}{FlywheelStopNonTasksCommand}}(\mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{bool}\ run()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ Flywheel\ instance\ to\ run\ the\ function\ on}}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}\ \&flywheel;}
+\DoxyCodeLine{00137\ \};}
+
+\end{DoxyCode}

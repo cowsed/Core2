@@ -1,0 +1,95 @@
+\doxysection{flywheel.\+h}
+\hypertarget{flywheel_8h_source}{}\label{flywheel_8h_source}\index{include/subsystems/flywheel.h@{include/subsystems/flywheel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{comment}{/*********************************************************}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ \ \ \ \ File:\ \ \ \ \ Flywheel.h}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ \ \ \ \ Purpose:\ \ Generalized\ flywheel\ class\ for\ Core.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ \ \ \ \ Author:\ \ \ Chris\ Nokes}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ \ \ \ \ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{**********************************************************}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ EDIT\ HISTORY}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**********************************************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ 09/23/2022\ \ <CRN>\ Reorganized,\ added\ documentation.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ 09/23/2022\ \ <CRN>\ Added\ functions\ elaborated\ on\ in\ .cpp.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*********************************************************/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/feedforward.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}vex.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../core/include/robot\_specs.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/pid.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{using\ namespace\ }vex;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classFlywheel}{Flywheel}}\{}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{enum}\ FlywheelControlStyle\{}
+\DoxyCodeLine{00031\ \ \ \ \ PID\_Feedforward,}
+\DoxyCodeLine{00032\ \ \ \ \ Feedforward,}
+\DoxyCodeLine{00033\ \ \ \ \ Take\_Back\_Half,}
+\DoxyCodeLine{00034\ \ \ \ \ Bang\_Bang,}
+\DoxyCodeLine{00035\ \ \ \};}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ CONSTRUCTORS,\ GETTERS,\ AND\ SETTERS}}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}(motor\_group\ \&motors,\ \mbox{\hyperlink{structPID_1_1pid__config__t}{PID::pid\_config\_t}}\ \&pid\_config,\ \mbox{\hyperlink{structFeedForward_1_1ff__config__t}{FeedForward::ff\_config\_t}}\ \&ff\_config,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ ratio);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00054\ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}(motor\_group\ \&motors,\ \mbox{\hyperlink{structFeedForward_1_1ff__config__t}{FeedForward::ff\_config\_t}}\ \&ff\_config,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ ratio);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}(motor\_group\ \&motors,\ \textcolor{keywordtype}{double}\ tbh\_gain,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ ratio);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{classFlywheel}{Flywheel}}(motor\_group\ \&motors,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ ratio);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classFlywheel_a5dee80fd74903884478649b6ec2f4528}{getDesiredRPM}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classFlywheel_a990fde5741011926c84c45ea3c51ced3}{isTaskRunning}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ motor\_group*\ \mbox{\hyperlink{classFlywheel_a5823c1242f4b00519f582a7468cf537a}{getMotors}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classFlywheel_ae46b69a8371dca7d6fb163c30192f666}{measureRPM}}();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classFlywheel_a00e5ad15adfb23185f7713b86d9d7b9f}{getRPM}}();}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{classPID}{PID}}*\ \mbox{\hyperlink{classFlywheel_adf7b3fab5fd8a708f339da649c72e775}{getPID}}();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classFlywheel_a45bde10a01304c71e74564cd080a9052}{getPIDValue}}();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classFlywheel_aea43f1c07b799133113d7b9ff14a7f36}{getFeedforwardValue}}();}
+\DoxyCodeLine{00111\ \ \ }
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classFlywheel_a8c1f0b98975b9d75bc5b350fa059043d}{getTBHGain}}();}
+\DoxyCodeLine{00116\ \ \ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFlywheel_a5eeb847c6ef4736b1917bf32843c69aa}{setPIDTarget}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFlywheel_aa9df5ad636fb49d76ba922ecd1115aef}{updatePID}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \textcolor{comment}{//\ SPINNERS\ AND\ STOPPERS}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFlywheel_a5f4afa2ab8976acbf9fd47776a884dd3}{spin\_raw}}(\textcolor{keywordtype}{double}\ speed,\ directionType\ dir=fwd);}
+\DoxyCodeLine{00138\ \ \ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFlywheel_a291e067bcc495a9d3da16a5832d78484}{spin\_manual}}(\textcolor{keywordtype}{double}\ speed,\ directionType\ dir=fwd);}
+\DoxyCodeLine{00146\ \ \ }
+\DoxyCodeLine{00152\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFlywheel_aa72700130c0c8a08517ec1396fe9cc2b}{spinRPM}}(\textcolor{keywordtype}{int}\ rpm);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFlywheel_a6634f5126f0404e0edeeff1e0e14d05e}{stop}}();}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ }
+\DoxyCodeLine{00163\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFlywheel_a78eaa40c9c069b8b4146c3ae34a21d4e}{stopMotors}}();}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00168\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classFlywheel_a63c9c4d3646e4ed14f3b98ce3ab28684}{stopNonTasks}}();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ motor\_group\ \&motors;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ motors\ that\ make\ up\ the\ flywheel}}
+\DoxyCodeLine{00173\ \ \ \textcolor{keywordtype}{bool}\ taskRunning\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ the\ task\ (thread\ but\ not)\ currently\ running?}}
+\DoxyCodeLine{00174\ \ \ \mbox{\hyperlink{classPID}{PID}}\ pid;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ PID\ on\ the\ flywheel}}
+\DoxyCodeLine{00175\ \ \ \mbox{\hyperlink{classFeedForward}{FeedForward}}\ ff;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ FF\ constants\ for\ the\ flywheel}}
+\DoxyCodeLine{00176\ \ \ \textcolor{keywordtype}{double}\ TBH\_gain;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TBH\ gain\ parameter\ for\ the\ flywheel}}
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{double}\ ratio;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ multiplies\ the\ velocity\ by\ this\ value}}
+\DoxyCodeLine{00178\ \ \ std::atomic<double>\ RPM;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Desired\ RPM\ of\ the\ flywheel.\ }}
+\DoxyCodeLine{00179\ \ \ task\ rpmTask;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ task\ (thread\ but\ not)\ that\ handles\ spinning\ the\ wheel\ at\ a\ given\ RPM}}
+\DoxyCodeLine{00180\ \ \ FlywheelControlStyle\ control\_style;\ \textcolor{comment}{//\ how\ the\ flywheel\ should\ be\ controlled}}
+\DoxyCodeLine{00181\ \ \ \textcolor{keywordtype}{double}\ smoothedRPM;}
+\DoxyCodeLine{00182\ \ \ \mbox{\hyperlink{classMovingAverage}{MovingAverage}}\ RPM\_avger;}
+\DoxyCodeLine{00183\ \ \ \};}
+
+\end{DoxyCode}

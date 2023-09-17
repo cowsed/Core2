@@ -1,0 +1,76 @@
+\doxysection{Flywheel\+Stop\+Motors\+Command Class Reference}
+\hypertarget{classFlywheelStopMotorsCommand}{}\label{classFlywheelStopMotorsCommand}\index{FlywheelStopMotorsCommand@{FlywheelStopMotorsCommand}}
+
+
+{\ttfamily \#include $<$flywheel\+\_\+commands.\+h$>$}
+
+Inheritance diagram for Flywheel\+Stop\+Motors\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classFlywheelStopMotorsCommand}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFlywheelStopMotorsCommand_a0e7ce6586a6ae1ec9322114ede691a13}{Flywheel\+Stop\+Motors\+Command}} (\mbox{\hyperlink{classFlywheel}{Flywheel}} \&flywheel)
+\item 
+bool \mbox{\hyperlink{classFlywheelStopMotorsCommand_ab5b75338d50c3674a5fe27a5e77698bc}{run}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classAutoCommand_a68475854d11e7c3be90e9c6e8fc9e982}{on\+\_\+timeout}} ()
+\item 
+\mbox{\hyperlink{classAutoCommand}{Auto\+Command}} \texorpdfstring{$\ast$}{*} {\bfseries with\+Timeout} (double t\+\_\+seconds)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classAutoCommand_ac3be7be26e49981ad1978491fd313472}{timeout\+\_\+seconds}} = default\+\_\+timeout
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double {\bfseries default\+\_\+timeout} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAutoCommand}{Auto\+Command} wrapper class for the stop\+Motors function in the \doxylink{classFlywheel}{Flywheel} class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classFlywheelStopMotorsCommand_a0e7ce6586a6ae1ec9322114ede691a13}\label{classFlywheelStopMotorsCommand_a0e7ce6586a6ae1ec9322114ede691a13} 
+\index{FlywheelStopMotorsCommand@{FlywheelStopMotorsCommand}!FlywheelStopMotorsCommand@{FlywheelStopMotorsCommand}}
+\index{FlywheelStopMotorsCommand@{FlywheelStopMotorsCommand}!FlywheelStopMotorsCommand@{FlywheelStopMotorsCommand}}
+\doxysubsubsection{\texorpdfstring{FlywheelStopMotorsCommand()}{FlywheelStopMotorsCommand()}}
+{\footnotesize\ttfamily Flywheel\+Stop\+Motors\+Command\+::\+Flywheel\+Stop\+Motors\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFlywheel}{Flywheel}} \&}]{flywheel }\end{DoxyParamCaption})}
+
+Construct a Flywhee\+Stop\+Motors Command 
+\begin{DoxyParams}{Parameters}
+{\em flywheel} & the flywheel system we are commanding \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classFlywheelStopMotorsCommand_ab5b75338d50c3674a5fe27a5e77698bc}\label{classFlywheelStopMotorsCommand_ab5b75338d50c3674a5fe27a5e77698bc} 
+\index{FlywheelStopMotorsCommand@{FlywheelStopMotorsCommand}!run@{run}}
+\index{run@{run}!FlywheelStopMotorsCommand@{FlywheelStopMotorsCommand}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily bool Flywheel\+Stop\+Motors\+Command\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Run stop Overrides run from \doxylink{classAutoCommand}{Auto\+Command} \begin{DoxyReturn}{Returns}
+true when execution is complete, false otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a9f58c576ca6378b18a4136f60df50560}{Auto\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/command\+\_\+structure/flywheel\+\_\+commands.\+h\item 
+src/utils/command\+\_\+structure/flywheel\+\_\+commands.\+cpp\end{DoxyCompactItemize}

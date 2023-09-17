@@ -1,0 +1,64 @@
+\doxysection{odometry\+\_\+base.\+h}
+\hypertarget{odometry__base_8h_source}{}\label{odometry__base_8h_source}\index{include/subsystems/odometry/odometry\_base.h@{include/subsystems/odometry/odometry\_base.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}vex.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/geometry.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../core/include/robot\_specs.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ PI}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ PI\ 3.141592654}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classOdometryBase}{OdometryBase}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classOdometryBase}{OdometryBase}}(\textcolor{keywordtype}{bool}\ is\_async);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{structpose__t}{pose\_t}}\ \mbox{\hyperlink{classOdometryBase_a423e398bd9ec7038abe7786482db6dd0}{get\_position}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classOdometryBase_a0abfc14f2b809c9bcf4ed8485f0b30d3}{set\_position}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structpose__t}{pose\_t}}\&\ newpos=\mbox{\hyperlink{classOdometryBase_a60141a41df6a5599c952b74578c95c7f}{zero\_pos}});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{structpose__t}{pose\_t}}\ \mbox{\hyperlink{classOdometryBase_a3bbff671a85247fff3a39e7b0c2cb242}{update}}()\ =\ 0;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classOdometryBase_a17a014f79b282ddfb715835214f3e2fb}{background\_task}}(\textcolor{keywordtype}{void}*\ ptr);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classOdometryBase_ab65ccaa80d4bb0d0aa20e82b3b991436}{end\_async}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a58d8c7bfd6456038d025c39580971bd6}{pos\_diff}}(\mbox{\hyperlink{structpose__t}{pose\_t}}\ start\_pos,\ \mbox{\hyperlink{structpose__t}{pose\_t}}\ end\_pos);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_af179c9d2004d114e1ab066bf8e7f00ca}{rot\_diff}}(\mbox{\hyperlink{structpose__t}{pose\_t}}\ pos1,\ \mbox{\hyperlink{structpose__t}{pose\_t}}\ pos2);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a70ec71e9fb2e14f0a191a6bac927d36b}{smallest\_angle}}(\textcolor{keywordtype}{double}\ start\_deg,\ \textcolor{keywordtype}{double}\ end\_deg);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classOdometryBase_ae6e35ee98b4410f034cd37c0d2055a8d}{end\_task}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a96c7be68db7424ddbe3704770dd1889f}{get\_speed}}();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a3223bac952f79bf910b979690499b965}{get\_accel}}();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_af30d97a35e9e9c4f9be0a81390e6c0f1}{get\_angular\_speed\_deg}}();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a456e6433e51971d2640ff96ed3a59432}{get\_angular\_accel\_deg}}();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{structpose__t}{pose\_t}}\ \mbox{\hyperlink{classOdometryBase_a60141a41df6a5599c952b74578c95c7f}{zero\_pos}}\ =\ \{.\mbox{\hyperlink{structpose__t_a2fcb0692ae214620382140b9c267fce2}{x}}=0.0L,\ .y=0.0L,\ .rot=90.0L\};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00132\ \ \ \ \ vex::task\ *\mbox{\hyperlink{classOdometryBase_ae5308f20a4dfef9594631010c7612dab}{handle}};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \ \ \ \ vex::mutex\ \mbox{\hyperlink{classOdometryBase_a88bb48858ca6ff8300a41e23482ec6f6}{mut}};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{structpose__t}{pose\_t}}\ \mbox{\hyperlink{classOdometryBase_a6f85d2eb4866a86d4c39ceae87ea79e2}{current\_pos}};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a6119ab3ce0b685e67a8b57871e0a2c26}{speed}};\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a94c814dfb542dd891d84db7e74537249}{accel}};\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a250ceb6ed296ea579e37851e4a0048fb}{ang\_speed\_deg}};\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classOdometryBase_a01f14bfcecbcde7a74b9b98376deb19f}{ang\_accel\_deg}};\ }
+\DoxyCodeLine{00148\ \};}
+
+\end{DoxyCode}

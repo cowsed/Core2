@@ -1,0 +1,94 @@
+\doxysection{Turn\+To\+Heading\+Command Class Reference}
+\hypertarget{classTurnToHeadingCommand}{}\label{classTurnToHeadingCommand}\index{TurnToHeadingCommand@{TurnToHeadingCommand}}
+
+
+{\ttfamily \#include $<$drive\+\_\+commands.\+h$>$}
+
+Inheritance diagram for Turn\+To\+Heading\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTurnToHeadingCommand}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTurnToHeadingCommand_a9a958d75babe94709827c827807d423d}{Turn\+To\+Heading\+Command}} (\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&drive\+\_\+sys, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double heading\+\_\+deg, double speed=1)
+\item 
+bool \mbox{\hyperlink{classTurnToHeadingCommand_af571168ca078be95cbc735c99c2f4093}{run}} () override
+\item 
+void \mbox{\hyperlink{classTurnToHeadingCommand_acaa3b650ed9f02315eb6ba901181bc85}{on\+\_\+timeout}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAutoCommand}{Auto\+Command}} \texorpdfstring{$\ast$}{*} {\bfseries with\+Timeout} (double t\+\_\+seconds)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classAutoCommand_ac3be7be26e49981ad1978491fd313472}{timeout\+\_\+seconds}} = default\+\_\+timeout
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double {\bfseries default\+\_\+timeout} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAutoCommand}{Auto\+Command} wrapper class for the turn\+\_\+to\+\_\+heading() function in the \doxylink{classTankDrive}{Tank\+Drive} class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTurnToHeadingCommand_a9a958d75babe94709827c827807d423d}\label{classTurnToHeadingCommand_a9a958d75babe94709827c827807d423d} 
+\index{TurnToHeadingCommand@{TurnToHeadingCommand}!TurnToHeadingCommand@{TurnToHeadingCommand}}
+\index{TurnToHeadingCommand@{TurnToHeadingCommand}!TurnToHeadingCommand@{TurnToHeadingCommand}}
+\doxysubsubsection{\texorpdfstring{TurnToHeadingCommand()}{TurnToHeadingCommand()}}
+{\footnotesize\ttfamily Turn\+To\+Heading\+Command\+::\+Turn\+To\+Heading\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&}]{drive\+\_\+sys,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{heading\+\_\+deg,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Construct a \doxylink{classTurnToHeadingCommand}{Turn\+To\+Heading\+Command} Command 
+\begin{DoxyParams}{Parameters}
+{\em drive\+\_\+sys} & the drive system we are commanding \\
+\hline
+{\em feedback} & the feedback controller we are using to execute the drive \\
+\hline
+{\em heading\+\_\+deg} & the heading to turn to in degrees \\
+\hline
+{\em max\+\_\+speed} & 0 -\/\texorpdfstring{$>$}{>} 1 percentage of the drive systems speed to drive at \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTurnToHeadingCommand_acaa3b650ed9f02315eb6ba901181bc85}\label{classTurnToHeadingCommand_acaa3b650ed9f02315eb6ba901181bc85} 
+\index{TurnToHeadingCommand@{TurnToHeadingCommand}!on\_timeout@{on\_timeout}}
+\index{on\_timeout@{on\_timeout}!TurnToHeadingCommand@{TurnToHeadingCommand}}
+\doxysubsubsection{\texorpdfstring{on\_timeout()}{on\_timeout()}}
+{\footnotesize\ttfamily void Turn\+To\+Heading\+Command\+::on\+\_\+timeout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Cleans up drive system if we time out before finishing
+
+reset the drive system if we don\textquotesingle{}t hit our target 
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a68475854d11e7c3be90e9c6e8fc9e982}{Auto\+Command}}.
+
+\Hypertarget{classTurnToHeadingCommand_af571168ca078be95cbc735c99c2f4093}\label{classTurnToHeadingCommand_af571168ca078be95cbc735c99c2f4093} 
+\index{TurnToHeadingCommand@{TurnToHeadingCommand}!run@{run}}
+\index{run@{run}!TurnToHeadingCommand@{TurnToHeadingCommand}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily bool Turn\+To\+Heading\+Command\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Run turn\+\_\+to\+\_\+heading Overrides run from \doxylink{classAutoCommand}{Auto\+Command} \begin{DoxyReturn}{Returns}
+true when execution is complete, false otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a9f58c576ca6378b18a4136f60df50560}{Auto\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/command\+\_\+structure/drive\+\_\+commands.\+h\item 
+src/utils/command\+\_\+structure/drive\+\_\+commands.\+cpp\end{DoxyCompactItemize}

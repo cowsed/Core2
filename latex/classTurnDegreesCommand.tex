@@ -1,0 +1,94 @@
+\doxysection{Turn\+Degrees\+Command Class Reference}
+\hypertarget{classTurnDegreesCommand}{}\label{classTurnDegreesCommand}\index{TurnDegreesCommand@{TurnDegreesCommand}}
+
+
+{\ttfamily \#include $<$drive\+\_\+commands.\+h$>$}
+
+Inheritance diagram for Turn\+Degrees\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTurnDegreesCommand}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTurnDegreesCommand_a70a7e4688c10f1b351e6d79a3a7862ee}{Turn\+Degrees\+Command}} (\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&drive\+\_\+sys, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double degrees, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classTurnDegreesCommand_a2206e4c5073a2e83f6bfa3eeca46a370}{run}} () override
+\item 
+void \mbox{\hyperlink{classTurnDegreesCommand_abd912b5906bafd9f4117e005eaeccb18}{on\+\_\+timeout}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAutoCommand}{Auto\+Command}} \texorpdfstring{$\ast$}{*} {\bfseries with\+Timeout} (double t\+\_\+seconds)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classAutoCommand_ac3be7be26e49981ad1978491fd313472}{timeout\+\_\+seconds}} = default\+\_\+timeout
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classAutoCommand}{Auto\+Command}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double {\bfseries default\+\_\+timeout} = 10.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classAutoCommand}{Auto\+Command} wrapper class for the turn\+\_\+degrees function in the \doxylink{classTankDrive}{Tank\+Drive} class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTurnDegreesCommand_a70a7e4688c10f1b351e6d79a3a7862ee}\label{classTurnDegreesCommand_a70a7e4688c10f1b351e6d79a3a7862ee} 
+\index{TurnDegreesCommand@{TurnDegreesCommand}!TurnDegreesCommand@{TurnDegreesCommand}}
+\index{TurnDegreesCommand@{TurnDegreesCommand}!TurnDegreesCommand@{TurnDegreesCommand}}
+\doxysubsubsection{\texorpdfstring{TurnDegreesCommand()}{TurnDegreesCommand()}}
+{\footnotesize\ttfamily Turn\+Degrees\+Command\+::\+Turn\+Degrees\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTankDrive}{Tank\+Drive}} \&}]{drive\+\_\+sys,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{degrees,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Construct a \doxylink{classTurnDegreesCommand}{Turn\+Degrees\+Command} Command 
+\begin{DoxyParams}{Parameters}
+{\em drive\+\_\+sys} & the drive system we are commanding \\
+\hline
+{\em feedback} & the feedback controller we are using to execute the turn \\
+\hline
+{\em degrees} & how many degrees to rotate \\
+\hline
+{\em max\+\_\+speed} & 0 -\/\texorpdfstring{$>$}{>} 1 percentage of the drive systems speed to drive at \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTurnDegreesCommand_abd912b5906bafd9f4117e005eaeccb18}\label{classTurnDegreesCommand_abd912b5906bafd9f4117e005eaeccb18} 
+\index{TurnDegreesCommand@{TurnDegreesCommand}!on\_timeout@{on\_timeout}}
+\index{on\_timeout@{on\_timeout}!TurnDegreesCommand@{TurnDegreesCommand}}
+\doxysubsubsection{\texorpdfstring{on\_timeout()}{on\_timeout()}}
+{\footnotesize\ttfamily void Turn\+Degrees\+Command\+::on\+\_\+timeout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Cleans up drive system if we time out before finishing
+
+reset the drive system if we timeout 
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a68475854d11e7c3be90e9c6e8fc9e982}{Auto\+Command}}.
+
+\Hypertarget{classTurnDegreesCommand_a2206e4c5073a2e83f6bfa3eeca46a370}\label{classTurnDegreesCommand_a2206e4c5073a2e83f6bfa3eeca46a370} 
+\index{TurnDegreesCommand@{TurnDegreesCommand}!run@{run}}
+\index{run@{run}!TurnDegreesCommand@{TurnDegreesCommand}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily bool Turn\+Degrees\+Command\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Run turn\+\_\+degrees Overrides run from \doxylink{classAutoCommand}{Auto\+Command} \begin{DoxyReturn}{Returns}
+true when execution is complete, false otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classAutoCommand_a9f58c576ca6378b18a4136f60df50560}{Auto\+Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/command\+\_\+structure/drive\+\_\+commands.\+h\item 
+src/utils/command\+\_\+structure/drive\+\_\+commands.\+cpp\end{DoxyCompactItemize}

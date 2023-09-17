@@ -1,0 +1,71 @@
+\doxysection{tank\+\_\+drive.\+h}
+\hypertarget{tank__drive_8h_source}{}\label{tank__drive_8h_source}\index{include/subsystems/tank\_drive.h@{include/subsystems/tank\_drive.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ PI}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ PI\ 3.141592654}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}vex.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../core/include/subsystems/odometry/odometry\_tank.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/pid.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../core/include/utils/feedback\_base.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../core/include/robot\_specs.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../core/src/utils/pure\_pursuit.cpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{using\ namespace\ }vex;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTankDrive}{TankDrive}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classTankDrive}{TankDrive}}(motor\_group\ \&left\_motors,\ motor\_group\ \&right\_motors,\ \mbox{\hyperlink{structrobot__specs__t}{robot\_specs\_t}}\ \&config,\ \mbox{\hyperlink{classOdometryBase}{OdometryBase}}\ *odom=NULL);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTankDrive_af10e648e4de35fa72859fb96a9a80485}{stop}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTankDrive_a1dff7827546fb3d17e0d2ca150bdf630}{drive\_tank}}(\textcolor{keywordtype}{double}\ left,\ \textcolor{keywordtype}{double}\ right,\ \textcolor{keywordtype}{int}\ power=1,\ \textcolor{keywordtype}{bool}\ isdriver=\textcolor{keyword}{false});}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTankDrive_a4c52b51a9b149d97e9b0b175a10652ef}{drive\_arcade}}(\textcolor{keywordtype}{double}\ forward\_back,\ \textcolor{keywordtype}{double}\ left\_right,\ \textcolor{keywordtype}{int}\ power=1);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_a1fb3d661076afbb91452649cdaf8550f}{drive\_forward}}(\textcolor{keywordtype}{double}\ inches,\ directionType\ dir,\ \mbox{\hyperlink{classFeedback}{Feedback}}\ \&feedback,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_a1fb3d661076afbb91452649cdaf8550f}{drive\_forward}}(\textcolor{keywordtype}{double}\ inches,\ directionType\ dir,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_ac1ce9895b82b7298465d8e59fae95763}{turn\_degrees}}(\textcolor{keywordtype}{double}\ degrees,\ \mbox{\hyperlink{classFeedback}{Feedback}}\ \&feedback,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_ac1ce9895b82b7298465d8e59fae95763}{turn\_degrees}}(\textcolor{keywordtype}{double}\ degrees,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_ad64cf88b180865f7e0f9810a344db791}{drive\_to\_point}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ vex::directionType\ dir,\ \mbox{\hyperlink{classFeedback}{Feedback}}\ \&feedback,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00121\ \ \ }
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_ad64cf88b180865f7e0f9810a344db791}{drive\_to\_point}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ vex::directionType\ dir,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_a25030a7b5e9404a911f7b776a7df7f05}{turn\_to\_heading}}(\textcolor{keywordtype}{double}\ heading\_deg,\ \mbox{\hyperlink{classFeedback}{Feedback}}\ \&feedback,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00151\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_a25030a7b5e9404a911f7b776a7df7f05}{turn\_to\_heading}}(\textcolor{keywordtype}{double}\ heading\_deg,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00156\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTankDrive_aaa68eae1521e5b87ecfed2a60b15bf34}{reset\_auto}}();}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00166\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classTankDrive_abb511cf1be40ef7be89c2ccff6a09cab}{modify\_inputs}}(\textcolor{keywordtype}{double}\ input,\ \textcolor{keywordtype}{int}\ power=2);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00179\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTankDrive_a13bb19d1cf97b7f3534f4f2a0a13bf27}{pure\_pursuit}}(std::vector<PurePursuit::hermite\_point>\ path,\ directionType\ dir,\ \textcolor{keywordtype}{double}\ radius,\ \textcolor{keywordtype}{double}\ res,\ \mbox{\hyperlink{classFeedback}{Feedback}}\ \&feedback,\ \textcolor{keywordtype}{double}\ max\_speed=1);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00182\ \ \ motor\_group\ \&left\_motors;\ }
+\DoxyCodeLine{00183\ \ \ motor\_group\ \&right\_motors;\ }
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \mbox{\hyperlink{classPID}{PID}}\ correction\_pid;\ }
+\DoxyCodeLine{00186\ \ \ \mbox{\hyperlink{classFeedback}{Feedback}}\ *drive\_default\_feedback\ =\ NULL;\ }
+\DoxyCodeLine{00187\ \ \ \mbox{\hyperlink{classFeedback}{Feedback}}\ *turn\_default\_feedback\ =\ NULL;\ }
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \mbox{\hyperlink{classOdometryBase}{OdometryBase}}\ *odometry;\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \mbox{\hyperlink{structrobot__specs__t}{robot\_specs\_t}}\ \&config;\ }
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \textcolor{keywordtype}{bool}\ func\_initialized\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00194\ \ \ \textcolor{keywordtype}{bool}\ is\_pure\_pursuit\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00195\ \};}
+
+\end{DoxyCode}

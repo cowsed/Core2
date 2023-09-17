@@ -1,0 +1,446 @@
+\doxysection{Tank\+Drive Class Reference}
+\hypertarget{classTankDrive}{}\label{classTankDrive}\index{TankDrive@{TankDrive}}
+
+
+{\ttfamily \#include $<$tank\+\_\+drive.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTankDrive_a34f305bb1c996e3748c925af259aeeb4}{Tank\+Drive}} (motor\+\_\+group \&left\+\_\+motors, motor\+\_\+group \&right\+\_\+motors, \mbox{\hyperlink{structrobot__specs__t}{robot\+\_\+specs\+\_\+t}} \&config, \mbox{\hyperlink{classOdometryBase}{Odometry\+Base}} \texorpdfstring{$\ast$}{*}odom=NULL)
+\item 
+void \mbox{\hyperlink{classTankDrive_af10e648e4de35fa72859fb96a9a80485}{stop}} ()
+\item 
+void \mbox{\hyperlink{classTankDrive_a1dff7827546fb3d17e0d2ca150bdf630}{drive\+\_\+tank}} (double left, double right, int power=1, bool isdriver=false)
+\item 
+void \mbox{\hyperlink{classTankDrive_a4c52b51a9b149d97e9b0b175a10652ef}{drive\+\_\+arcade}} (double forward\+\_\+back, double left\+\_\+right, int power=1)
+\item 
+bool \mbox{\hyperlink{classTankDrive_a1fb3d661076afbb91452649cdaf8550f}{drive\+\_\+forward}} (double inches, direction\+Type dir, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classTankDrive_a8edcf4316d5a22c32849d7d1d5d0a793}{drive\+\_\+forward}} (double inches, direction\+Type dir, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classTankDrive_ac1ce9895b82b7298465d8e59fae95763}{turn\+\_\+degrees}} (double degrees, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classTankDrive_a26d51cc12145f2520ea0c4355716184d}{turn\+\_\+degrees}} (double degrees, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classTankDrive_ad64cf88b180865f7e0f9810a344db791}{drive\+\_\+to\+\_\+point}} (double x, double y, vex\+::direction\+Type dir, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classTankDrive_a267114928d17e16d36ad14fd4d3bf91a}{drive\+\_\+to\+\_\+point}} (double x, double y, vex\+::direction\+Type dir, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classTankDrive_a25030a7b5e9404a911f7b776a7df7f05}{turn\+\_\+to\+\_\+heading}} (double heading\+\_\+deg, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double max\+\_\+speed=1)
+\item 
+bool \mbox{\hyperlink{classTankDrive_ab003af6cf2de93e649cce5245b092a36}{turn\+\_\+to\+\_\+heading}} (double heading\+\_\+deg, double max\+\_\+speed=1)
+\item 
+void \mbox{\hyperlink{classTankDrive_aaa68eae1521e5b87ecfed2a60b15bf34}{reset\+\_\+auto}} ()
+\item 
+bool \mbox{\hyperlink{classTankDrive_a13bb19d1cf97b7f3534f4f2a0a13bf27}{pure\+\_\+pursuit}} (std\+::vector$<$ \mbox{\hyperlink{structPurePursuit_1_1hermite__point}{Pure\+Pursuit\+::hermite\+\_\+point}} $>$ path, direction\+Type dir, double radius, double res, \mbox{\hyperlink{classFeedback}{Feedback}} \&feedback, double max\+\_\+speed=1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classTankDrive_abb511cf1be40ef7be89c2ccff6a09cab}{modify\+\_\+inputs}} (double input, int power=2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classTankDrive}{Tank\+Drive} is a class to run a tank drive system. A tank drive system, sometimes called differential drive, has a motor (or group of synchronized motors) on the left and right side 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTankDrive_a34f305bb1c996e3748c925af259aeeb4}\label{classTankDrive_a34f305bb1c996e3748c925af259aeeb4} 
+\index{TankDrive@{TankDrive}!TankDrive@{TankDrive}}
+\index{TankDrive@{TankDrive}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{TankDrive()}{TankDrive()}}
+{\footnotesize\ttfamily Tank\+Drive\+::\+Tank\+Drive (\begin{DoxyParamCaption}\item[{motor\+\_\+group \&}]{left\+\_\+motors,  }\item[{motor\+\_\+group \&}]{right\+\_\+motors,  }\item[{\mbox{\hyperlink{structrobot__specs__t}{robot\+\_\+specs\+\_\+t}} \&}]{config,  }\item[{\mbox{\hyperlink{classOdometryBase}{Odometry\+Base}} \texorpdfstring{$\ast$}{*}}]{odom = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Create the \doxylink{classTankDrive}{Tank\+Drive} object 
+\begin{DoxyParams}{Parameters}
+{\em left\+\_\+motors} & left side drive motors \\
+\hline
+{\em right\+\_\+motors} & right side drive motors \\
+\hline
+{\em config} & the configuration specification defining physical dimensions about the robot. See \doxylink{structrobot__specs__t}{robot\+\_\+specs\+\_\+t} for more info \\
+\hline
+{\em odom} & an odometry system to track position and rotation. this is necessary to execute autonomous paths \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTankDrive_a4c52b51a9b149d97e9b0b175a10652ef}\label{classTankDrive_a4c52b51a9b149d97e9b0b175a10652ef} 
+\index{TankDrive@{TankDrive}!drive\_arcade@{drive\_arcade}}
+\index{drive\_arcade@{drive\_arcade}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{drive\_arcade()}{drive\_arcade()}}
+{\footnotesize\ttfamily void Tank\+Drive\+::drive\+\_\+arcade (\begin{DoxyParamCaption}\item[{double}]{forward\+\_\+back,  }\item[{double}]{left\+\_\+right,  }\item[{int}]{power = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Drive the robot using arcade style controls. forward\+\_\+back controls the linear motion, left\+\_\+right controls the turning.
+
+forward\+\_\+back and left\+\_\+right are in "{}percent"{}\+: -\/1.\+0 -\/\texorpdfstring{$>$}{>} 1.\+0
+
+
+\begin{DoxyParams}{Parameters}
+{\em forward\+\_\+back} & the percent to move forward or backward \\
+\hline
+{\em left\+\_\+right} & the percent to turn left or right \\
+\hline
+{\em power} & modifies the input velocities left\texorpdfstring{$^\wedge$}{\string^}power, right\texorpdfstring{$^\wedge$}{\string^}power\\
+\hline
+\end{DoxyParams}
+Drive the robot using arcade style controls. forward\+\_\+back controls the linear motion, left\+\_\+right controls the turning.
+
+left\+\_\+motors and right\+\_\+motors are in "{}percent"{}\+: -\/1.\+0 -\/\texorpdfstring{$>$}{>} 1.\+0 \Hypertarget{classTankDrive_a8edcf4316d5a22c32849d7d1d5d0a793}\label{classTankDrive_a8edcf4316d5a22c32849d7d1d5d0a793} 
+\index{TankDrive@{TankDrive}!drive\_forward@{drive\_forward}}
+\index{drive\_forward@{drive\_forward}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{drive\_forward()}{drive\_forward()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::drive\+\_\+forward (\begin{DoxyParamCaption}\item[{double}]{inches,  }\item[{direction\+Type}]{dir,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Autonomously drive the robot forward a certain distance
+
+
+\begin{DoxyParams}{Parameters}
+{\em inches} & degrees by which we will turn relative to the robot (+) turns ccw, (-\/) turns cw \\
+\hline
+{\em dir} & the direction we want to travel forward and backward \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power\\
+\hline
+\end{DoxyParams}
+Autonomously drive the robot forward a certain distance
+
+
+\begin{DoxyParams}{Parameters}
+{\em inches} & degrees by which we will turn relative to the robot (+) turns ccw, (-\/) turns cw \\
+\hline
+{\em dir} & the direction we want to travel forward and backward \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we have finished driving to our point 
+\end{DoxyReturn}
+\Hypertarget{classTankDrive_a1fb3d661076afbb91452649cdaf8550f}\label{classTankDrive_a1fb3d661076afbb91452649cdaf8550f} 
+\index{TankDrive@{TankDrive}!drive\_forward@{drive\_forward}}
+\index{drive\_forward@{drive\_forward}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{drive\_forward()}{drive\_forward()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::drive\+\_\+forward (\begin{DoxyParamCaption}\item[{double}]{inches,  }\item[{direction\+Type}]{dir,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Use odometry to drive forward a certain distance using a custom feedback controller
+
+Returns whether or not the robot has reached it\textquotesingle{}s destination. 
+\begin{DoxyParams}{Parameters}
+{\em inches} & the distance to drive forward \\
+\hline
+{\em dir} & the direction we want to travel forward and backward \\
+\hline
+{\em feedback} & the custom feedback controller we will use to travel. controls the rate at which we accelerate and drive. \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true when we have reached our target distance
+\end{DoxyReturn}
+Use odometry to drive forward a certain distance using a custom feedback controller
+
+Returns whether or not the robot has reached it\textquotesingle{}s destination. 
+\begin{DoxyParams}{Parameters}
+{\em inches} & the distance to drive forward \\
+\hline
+{\em dir} & the direction we want to travel forward and backward \\
+\hline
+{\em feedback} & the custom feedback controller we will use to travel. controls the rate at which we accelerate and drive. \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTankDrive_a1dff7827546fb3d17e0d2ca150bdf630}\label{classTankDrive_a1dff7827546fb3d17e0d2ca150bdf630} 
+\index{TankDrive@{TankDrive}!drive\_tank@{drive\_tank}}
+\index{drive\_tank@{drive\_tank}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{drive\_tank()}{drive\_tank()}}
+{\footnotesize\ttfamily void Tank\+Drive\+::drive\+\_\+tank (\begin{DoxyParamCaption}\item[{double}]{left,  }\item[{double}]{right,  }\item[{int}]{power = {\ttfamily 1},  }\item[{bool}]{isdriver = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Drive the robot using differential style controls. left\+\_\+motors controls the left motors, right\+\_\+motors controls the right motors.
+
+left\+\_\+motors and right\+\_\+motors are in "{}percent"{}\+: -\/1.\+0 -\/\texorpdfstring{$>$}{>} 1.\+0 
+\begin{DoxyParams}{Parameters}
+{\em left} & the percent to run the left motors \\
+\hline
+{\em right} & the percent to run the right motors \\
+\hline
+{\em power} & modifies the input velocities left\texorpdfstring{$^\wedge$}{\string^}power, right\texorpdfstring{$^\wedge$}{\string^}power \\
+\hline
+{\em isdriver} & default false. if true uses motor percentage. if false uses plain percentage of maximum voltage\\
+\hline
+\end{DoxyParams}
+Drive the robot using differential style controls. left\+\_\+motors controls the left motors, right\+\_\+motors controls the right motors.
+
+left\+\_\+motors and right\+\_\+motors are in "{}percent"{}\+: -\/1.\+0 -\/\texorpdfstring{$>$}{>} 1.\+0 \Hypertarget{classTankDrive_a267114928d17e16d36ad14fd4d3bf91a}\label{classTankDrive_a267114928d17e16d36ad14fd4d3bf91a} 
+\index{TankDrive@{TankDrive}!drive\_to\_point@{drive\_to\_point}}
+\index{drive\_to\_point@{drive\_to\_point}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{drive\_to\_point()}{drive\_to\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::drive\+\_\+to\+\_\+point (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{vex\+::direction\+Type}]{dir,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Use odometry to automatically drive the robot to a point on the field. X and Y is the final point we want the robot. Here we use the default feedback controller from the drive\+\_\+sys
+
+Returns whether or not the robot has reached it\textquotesingle{}s destination. 
+\begin{DoxyParams}{Parameters}
+{\em x} & the x position of the target \\
+\hline
+{\em y} & the y position of the target \\
+\hline
+{\em dir} & the direction we want to travel forward and backward \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power\\
+\hline
+\end{DoxyParams}
+Use odometry to automatically drive the robot to a point on the field. X and Y is the final point we want the robot. Here we use the default feedback controller from the drive\+\_\+sys
+
+Returns whether or not the robot has reached it\textquotesingle{}s destination. 
+\begin{DoxyParams}{Parameters}
+{\em x} & the x position of the target \\
+\hline
+{\em y} & the y position of the target \\
+\hline
+{\em dir} & the direction we want to travel forward and backward \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we have reached our target point 
+\end{DoxyReturn}
+\Hypertarget{classTankDrive_ad64cf88b180865f7e0f9810a344db791}\label{classTankDrive_ad64cf88b180865f7e0f9810a344db791} 
+\index{TankDrive@{TankDrive}!drive\_to\_point@{drive\_to\_point}}
+\index{drive\_to\_point@{drive\_to\_point}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{drive\_to\_point()}{drive\_to\_point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::drive\+\_\+to\+\_\+point (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{vex\+::direction\+Type}]{dir,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Use odometry to automatically drive the robot to a point on the field. X and Y is the final point we want the robot.
+
+Returns whether or not the robot has reached it\textquotesingle{}s destination. 
+\begin{DoxyParams}{Parameters}
+{\em x} & the x position of the target \\
+\hline
+{\em y} & the y position of the target \\
+\hline
+{\em dir} & the direction we want to travel forward and backward \\
+\hline
+{\em feedback} & the feedback controller we will use to travel. controls the rate at which we accelerate and drive. \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power\\
+\hline
+\end{DoxyParams}
+Use odometry to automatically drive the robot to a point on the field. X and Y is the final point we want the robot.
+
+Returns whether or not the robot has reached it\textquotesingle{}s destination. 
+\begin{DoxyParams}{Parameters}
+{\em x} & the x position of the target \\
+\hline
+{\em y} & the y position of the target \\
+\hline
+{\em dir} & the direction we want to travel forward and backward \\
+\hline
+{\em feedback} & the feedback controller we will use to travel. controls the rate at which we accelerate and drive. \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we have reached our target point 
+\end{DoxyReturn}
+\Hypertarget{classTankDrive_abb511cf1be40ef7be89c2ccff6a09cab}\label{classTankDrive_abb511cf1be40ef7be89c2ccff6a09cab} 
+\index{TankDrive@{TankDrive}!modify\_inputs@{modify\_inputs}}
+\index{modify\_inputs@{modify\_inputs}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{modify\_inputs()}{modify\_inputs()}}
+{\footnotesize\ttfamily double Tank\+Drive\+::modify\+\_\+inputs (\begin{DoxyParamCaption}\item[{double}]{input,  }\item[{int}]{power = {\ttfamily 2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create a curve for the inputs, so that drivers have more control at lower speeds. Curves are exponential, with the default being squaring the inputs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & the input before modification \\
+\hline
+{\em power} & the power to raise input to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+input \texorpdfstring{$^\wedge$}{\string^} power (accounts for negative inputs and odd numbered powers)
+\end{DoxyReturn}
+Modify the inputs from the controller by squaring / cubing, etc Allows for better control of the robot at slower speeds 
+\begin{DoxyParams}{Parameters}
+{\em input} & the input signal -\/1 -\/\texorpdfstring{$>$}{>} 1 \\
+\hline
+{\em power} & the power to raise the signal to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+input\texorpdfstring{$^\wedge$}{\string^}power accounting for any sign issues that would arise with this naive solution 
+\end{DoxyReturn}
+\Hypertarget{classTankDrive_a13bb19d1cf97b7f3534f4f2a0a13bf27}\label{classTankDrive_a13bb19d1cf97b7f3534f4f2a0a13bf27} 
+\index{TankDrive@{TankDrive}!pure\_pursuit@{pure\_pursuit}}
+\index{pure\_pursuit@{pure\_pursuit}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{pure\_pursuit()}{pure\_pursuit()}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::pure\+\_\+pursuit (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structPurePursuit_1_1hermite__point}{Pure\+Pursuit\+::hermite\+\_\+point}} $>$}]{path,  }\item[{direction\+Type}]{dir,  }\item[{double}]{radius,  }\item[{double}]{res,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Follow a hermite curve using the pure pursuit algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The hermite curve for the robot to take. Must have 2 or more points. \\
+\hline
+{\em dir} & Whether the robot should move forward or backwards \\
+\hline
+{\em radius} & How the pure pursuit radius, in inches, for finding the lookahead point \\
+\hline
+{\em res} & The number of points to use along the path; the hermite curve is split up into "{}res"{} individual points. \\
+\hline
+{\em feedback} & The feedback controller to use \\
+\hline
+{\em max\+\_\+speed} & Robot\textquotesingle{}s maximum speed throughout the path, between 0 and 1.\+0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true when we reach the end of the path 
+\end{DoxyReturn}
+\Hypertarget{classTankDrive_aaa68eae1521e5b87ecfed2a60b15bf34}\label{classTankDrive_aaa68eae1521e5b87ecfed2a60b15bf34} 
+\index{TankDrive@{TankDrive}!reset\_auto@{reset\_auto}}
+\index{reset\_auto@{reset\_auto}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{reset\_auto()}{reset\_auto()}}
+{\footnotesize\ttfamily void Tank\+Drive\+::reset\+\_\+auto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reset the initialization for autonomous drive functions \Hypertarget{classTankDrive_af10e648e4de35fa72859fb96a9a80485}\label{classTankDrive_af10e648e4de35fa72859fb96a9a80485} 
+\index{TankDrive@{TankDrive}!stop@{stop}}
+\index{stop@{stop}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Tank\+Drive\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stops rotation of all the motors using their "{}brake mode"{} \Hypertarget{classTankDrive_a26d51cc12145f2520ea0c4355716184d}\label{classTankDrive_a26d51cc12145f2520ea0c4355716184d} 
+\index{TankDrive@{TankDrive}!turn\_degrees@{turn\_degrees}}
+\index{turn\_degrees@{turn\_degrees}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{turn\_degrees()}{turn\_degrees()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::turn\+\_\+degrees (\begin{DoxyParamCaption}\item[{double}]{degrees,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Autonomously turn the robot X degrees to counterclockwise (negative for clockwise), with a maximum motor speed of percent\+\_\+speed (-\/1.\+0 -\/\texorpdfstring{$>$}{>} 1.\+0)
+
+Uses the defualt turning feedback of the drive system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & degrees by which we will turn relative to the robot (+) turns ccw, (-\/) turns cw \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power\\
+\hline
+\end{DoxyParams}
+Autonomously turn the robot X degrees to counterclockwise (negative for clockwise), with a maximum motor speed of percent\+\_\+speed (-\/1.\+0 -\/\texorpdfstring{$>$}{>} 1.\+0)
+
+Uses the defualt turning feedback of the drive system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & degrees by which we will turn relative to the robot (+) turns ccw, (-\/) turns cw \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we turned te target number of degrees 
+\end{DoxyReturn}
+\Hypertarget{classTankDrive_ac1ce9895b82b7298465d8e59fae95763}\label{classTankDrive_ac1ce9895b82b7298465d8e59fae95763} 
+\index{TankDrive@{TankDrive}!turn\_degrees@{turn\_degrees}}
+\index{turn\_degrees@{turn\_degrees}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{turn\_degrees()}{turn\_degrees()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::turn\+\_\+degrees (\begin{DoxyParamCaption}\item[{double}]{degrees,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Autonomously turn the robot X degrees counterclockwise (negative for clockwise), with a maximum motor speed of percent\+\_\+speed (-\/1.\+0 -\/\texorpdfstring{$>$}{>} 1.\+0)
+
+Uses \doxylink{classPID}{PID} + Feedforward for it\textquotesingle{}s control.
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & degrees by which we will turn relative to the robot (+) turns ccw, (-\/) turns cw \\
+\hline
+{\em feedback} & the feedback controller we will use to travel. controls the rate at which we accelerate and drive. \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power\\
+\hline
+\end{DoxyParams}
+Autonomously turn the robot X degrees to counterclockwise (negative for clockwise), with a maximum motor speed of percent\+\_\+speed (-\/1.\+0 -\/\texorpdfstring{$>$}{>} 1.\+0)
+
+Uses the specified feedback for it\textquotesingle{}s control.
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & degrees by which we will turn relative to the robot (+) turns ccw, (-\/) turns cw \\
+\hline
+{\em feedback} & the feedback controller we will use to travel. controls the rate at which we accelerate and drive. \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we have turned our target number of degrees 
+\end{DoxyReturn}
+\Hypertarget{classTankDrive_ab003af6cf2de93e649cce5245b092a36}\label{classTankDrive_ab003af6cf2de93e649cce5245b092a36} 
+\index{TankDrive@{TankDrive}!turn\_to\_heading@{turn\_to\_heading}}
+\index{turn\_to\_heading@{turn\_to\_heading}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{turn\_to\_heading()}{turn\_to\_heading()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::turn\+\_\+to\+\_\+heading (\begin{DoxyParamCaption}\item[{double}]{heading\+\_\+deg,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Turn the robot in place to an exact heading relative to the field. 0 is forward. Uses the defualt turn feedback of the drive system
+
+
+\begin{DoxyParams}{Parameters}
+{\em heading\+\_\+deg} & the heading to which we will turn \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power\\
+\hline
+\end{DoxyParams}
+Turn the robot in place to an exact heading relative to the field. 0 is forward. Uses the defualt turn feedback of the drive system
+
+
+\begin{DoxyParams}{Parameters}
+{\em heading\+\_\+deg} & the heading to which we will turn \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we have reached our target heading 
+\end{DoxyReturn}
+\Hypertarget{classTankDrive_a25030a7b5e9404a911f7b776a7df7f05}\label{classTankDrive_a25030a7b5e9404a911f7b776a7df7f05} 
+\index{TankDrive@{TankDrive}!turn\_to\_heading@{turn\_to\_heading}}
+\index{turn\_to\_heading@{turn\_to\_heading}!TankDrive@{TankDrive}}
+\doxysubsubsection{\texorpdfstring{turn\_to\_heading()}{turn\_to\_heading()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Tank\+Drive\+::turn\+\_\+to\+\_\+heading (\begin{DoxyParamCaption}\item[{double}]{heading\+\_\+deg,  }\item[{\mbox{\hyperlink{classFeedback}{Feedback}} \&}]{feedback,  }\item[{double}]{max\+\_\+speed = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Turn the robot in place to an exact heading relative to the field. 0 is forward.
+
+
+\begin{DoxyParams}{Parameters}
+{\em heading\+\_\+deg} & the heading to which we will turn \\
+\hline
+{\em feedback} & the feedback controller we will use to travel. controls the rate at which we accelerate and drive. \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power\\
+\hline
+\end{DoxyParams}
+Turn the robot in place to an exact heading relative to the field. 0 is forward.
+
+
+\begin{DoxyParams}{Parameters}
+{\em heading\+\_\+deg} & the heading to which we will turn \\
+\hline
+{\em feedback} & the feedback controller we will use to travel. controls the rate at which we accelerate and drive. \\
+\hline
+{\em max\+\_\+speed} & the maximum percentage of robot speed at which the robot will travel. 1 = full power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if we have reached our target heading 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/subsystems/tank\+\_\+drive.\+h\item 
+src/subsystems/tank\+\_\+drive.\+cpp\end{DoxyCompactItemize}

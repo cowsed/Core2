@@ -1,0 +1,140 @@
+\doxysection{Feedback Class Reference}
+\hypertarget{classFeedback}{}\label{classFeedback}\index{Feedback@{Feedback}}
+
+
+{\ttfamily \#include $<$feedback\+\_\+base.\+h$>$}
+
+Inheritance diagram for Feedback\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classFeedback}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classFeedback_ac82a001abba300290790eb8414a84dce}\label{classFeedback_ac82a001abba300290790eb8414a84dce} 
+enum {\bfseries Feedback\+Type} \{ {\bfseries PIDType}
+, {\bfseries Feedforward\+Type}
+, {\bfseries Other\+Type}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classFeedback_a22efb13216bfd51aea07e0b6e45135c1}{init}} (double start\+\_\+pt, double set\+\_\+pt)=0
+\item 
+virtual double \mbox{\hyperlink{classFeedback_adda5fc7642539996be00632954dfc41f}{update}} (double val)=0
+\item 
+virtual double \mbox{\hyperlink{classFeedback_ac44bb519a6f4e25c8e8250f3d30ab359}{get}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classFeedback_a533a10b65cfc998898bf054f8b141de2}{set\+\_\+limits}} (double lower, double upper)=0
+\item 
+virtual bool \mbox{\hyperlink{classFeedback_ae4cc835c374aab9761d22603d4329d34}{is\+\_\+on\+\_\+target}} ()=0
+\item 
+\Hypertarget{classFeedback_aef8981678b7bcded915ccc7e3e237208}\label{classFeedback_aef8981678b7bcded915ccc7e3e237208} 
+virtual Feedback\+::\+Feedback\+Type {\bfseries get\+\_\+type} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface so that subsystems can easily switch between feedback loops
+
+\begin{DoxyAuthor}{Author}
+Ryan Mc\+Gee 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+9/25/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classFeedback_ac44bb519a6f4e25c8e8250f3d30ab359}\label{classFeedback_ac44bb519a6f4e25c8e8250f3d30ab359} 
+\index{Feedback@{Feedback}!get@{get}}
+\index{get@{get}!Feedback@{Feedback}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily virtual double Feedback\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+the last saved result from the feedback controller 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMotionController_a2a1944f590618cd91770364aea416cd5}{Motion\+Controller}}, \mbox{\hyperlink{classPID_a69c2e66b8ff06c86ca9701d11e21da75}{PID}}, and \mbox{\hyperlink{classPIDFF_a78a34d271bcc703fc803e15b275fd238}{PIDFF}}.
+
+\Hypertarget{classFeedback_a22efb13216bfd51aea07e0b6e45135c1}\label{classFeedback_a22efb13216bfd51aea07e0b6e45135c1} 
+\index{Feedback@{Feedback}!init@{init}}
+\index{init@{init}!Feedback@{Feedback}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual void Feedback\+::init (\begin{DoxyParamCaption}\item[{double}]{start\+\_\+pt,  }\item[{double}]{set\+\_\+pt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Initialize the feedback controller for a movement
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+pt} & the current sensor value \\
+\hline
+{\em set\+\_\+pt} & where the sensor value should be \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMotionController_af0d665d9916111cbce677da6df6b6667}{Motion\+Controller}}, \mbox{\hyperlink{classPID_aab0f3b4351cc4ee2b8bb366105e85e95}{PID}}, and \mbox{\hyperlink{classPIDFF_a37226c8d3bfac97485b28105a15f29fc}{PIDFF}}.
+
+\Hypertarget{classFeedback_ae4cc835c374aab9761d22603d4329d34}\label{classFeedback_ae4cc835c374aab9761d22603d4329d34} 
+\index{Feedback@{Feedback}!is\_on\_target@{is\_on\_target}}
+\index{is\_on\_target@{is\_on\_target}!Feedback@{Feedback}}
+\doxysubsubsection{\texorpdfstring{is\_on\_target()}{is\_on\_target()}}
+{\footnotesize\ttfamily virtual bool Feedback\+::is\+\_\+on\+\_\+target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+true if the feedback controller has reached it\textquotesingle{}s setpoint 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMotionController_aa9e2af88b848646889deb1d43a283173}{Motion\+Controller}}, \mbox{\hyperlink{classPID_a9de884c31570c4ae0dc6e24eb26daa43}{PID}}, and \mbox{\hyperlink{classPIDFF_a2534a33490570d839bf1849673a70bc1}{PIDFF}}.
+
+\Hypertarget{classFeedback_a533a10b65cfc998898bf054f8b141de2}\label{classFeedback_a533a10b65cfc998898bf054f8b141de2} 
+\index{Feedback@{Feedback}!set\_limits@{set\_limits}}
+\index{set\_limits@{set\_limits}!Feedback@{Feedback}}
+\doxysubsubsection{\texorpdfstring{set\_limits()}{set\_limits()}}
+{\footnotesize\ttfamily virtual void Feedback\+::set\+\_\+limits (\begin{DoxyParamCaption}\item[{double}]{lower,  }\item[{double}]{upper }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Clamp the upper and lower limits of the output. If both are 0, no limits should be applied.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & Upper limit \\
+\hline
+{\em upper} & Lower limit \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classMotionController_a944c245002a1eb124dd8df40de4fcc57}{Motion\+Controller}}, \mbox{\hyperlink{classPID_a8411ac48e8868d89e97afcf8990cca2c}{PID}}, and \mbox{\hyperlink{classPIDFF_ae0dccb27a91ec687f90c930441f246bb}{PIDFF}}.
+
+\Hypertarget{classFeedback_adda5fc7642539996be00632954dfc41f}\label{classFeedback_adda5fc7642539996be00632954dfc41f} 
+\index{Feedback@{Feedback}!update@{update}}
+\index{update@{update}!Feedback@{Feedback}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual double Feedback\+::update (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Iterate the feedback loop once with an updated sensor value
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value from the sensor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+feedback loop result 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classMotionController_a86ef0ef19858b5b407f7406bb5da30af}{Motion\+Controller}}, \mbox{\hyperlink{classPID_a53b5c34ba5e81fb79ed4258a143015b9}{PID}}, and \mbox{\hyperlink{classPIDFF_a9a9b05ec43e4430019652b62799e761c}{PIDFF}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/utils/feedback\+\_\+base.\+h\end{DoxyCompactItemize}
