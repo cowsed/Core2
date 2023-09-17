@@ -21,6 +21,15 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+
+
+    - name: Install Dependencies
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: doxygen-latex poppler-utils
+        version: 1.1
+
+
         
     - name: Doxygen Action
       uses: mattnotmitt/doxygen-action@v1.1.0
@@ -30,13 +39,6 @@ jobs:
         # Working directory
         working-directory: "." # default is .
 
-
-
-    - name: Install Dependencies
-      uses: awalsh128/cache-apt-pkgs-action@latest
-      with:
-        packages: texlive-latex-base texlive-fonts-extra texlive-latex-extra texlive-font-utils poppler-utils
-        version: 1.0
 
     - name: Generate Reference Manual
       run: sudo make --directory=documentation/latex
