@@ -29,11 +29,16 @@ jobs:
         doxyfile-path: "./Doxyfile" # default is ./Doxyfile
         # Working directory
         working-directory: "." # default is .
+
+    - run: make -f documentation/latex/Makefile 
+
+    
     - name: Copy file
       uses: canastro/copy-action@0.0.2
       with:
-        source: "documentation/latex/refman.tex"
-        target: "documentation/html/refman.tex"
+        source: "documentation/latex/refman.pdf"
+        target: "documentation/html/refman.pdf"
+
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
