@@ -30,11 +30,13 @@ jobs:
         # Working directory
         working-directory: "." # default is .
 
-    - name: Install pdflatex dependencies
-      run: sudo apt-get install -y texlive-latex-base texlive-fonts-extra texlive-latex-extra texlive-font-utils
 
-    - name: Install pdfunite dependencies
-      run: sudo apt-get install -y poppler-utils
+
+    - name: Install Dependencies
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: texlive-latex-base texlive-fonts-extra texlive-latex-extra texlive-font-utils poppler-utils
+        version: 1.0
 
     - name: Generate Reference Manual
       run: sudo make --directory=documentation/latex
