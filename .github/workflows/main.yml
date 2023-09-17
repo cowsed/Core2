@@ -55,10 +55,11 @@ jobs:
         target: "documentation/html/refman.log"
 
 
-    - name: Get Export Link 
+    - name: Get Notebook Link 
       shell: bash
       run: |
         echo "NOTEBOOK_URL=$(curl -s https://docs.google.com/document/d/1Qi4-ZraS1KN8aG-58iJjD0aQQz0nNSEPkc6Hfz7vbTE/export\?format\=pdf |grep HREF |sed -E "s|.*HREF=\"([^\"]*).*|\1|g")" >> "$GITHUB_ENV"  
+
     - name: Download Notebook
       uses: wei/curl@master
       with: 
@@ -66,9 +67,8 @@ jobs:
 
 
 
-
     - name: Concatenate Manual and Notebook
-      run: pdfunite documentation/html/notebook_top.pdf documentation/html/refman.pdf documentation/html/notebook.pdf
+      run: sudo pdfunite documentation/html/notebook_top.pdf documentation/html/refman.pdf documentation/html/notebook.pdf
 
     
     - name: Deploy
